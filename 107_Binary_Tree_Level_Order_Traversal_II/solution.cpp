@@ -28,8 +28,7 @@ public:
             p = myqueue.front();
             myqueue.pop();
             }
-            auto i_it = ret.begin();
-            i_it = ret.insert(i_it, in);
+            ret.insert(ret.begin(), in);
             myqueue.push(NULL);
         }
         return ret;

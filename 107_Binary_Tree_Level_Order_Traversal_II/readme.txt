@@ -5,8 +5,16 @@
 Given a binary tree, return the bottom-up level order traversal of its nodes' values. (ie, from left to right, level by level from leaf to root).
 
 解决方案
-和105一样，就是最后翻转一下就是了。
-或者插入的时候由从尾插改为从头插
+102. Binary Tree Level Order Traversal的进阶版本
+就是最后翻转一下就是了，或者插入的时候由从尾插改为从头插
+solution.cpp
+
+
+
+或者递归调用的时候写的顺序颠倒一下，由写level改为写depth - level
+solution2.cpp
+
+
 
 样例
 Given binary tree [3,9,20,null,null,15,7],

@@ -13,9 +13,18 @@ Populate each next pointer to point to its next right node. If there is no next 
 
 Initially, all next pointers are set to NULL.
 
+Note:
+
+You may only use constant extra space.
+You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
+
 解决方案
-solution的解法不是我现在想的，solution的解法是一个道理，但是那样写比较容易写错
-我现在想的是直接维护一个队列，队列里是某一层的结果，最后添加null
+1. 层序遍历，并且在每层末尾往push一个NULL，solution1.cpp
+2. 递归，根据当前层设置下一层，然后找到下一层起点，递归处理， solution2.cpp
+
+solution.cpp里保存的是最初的解法，有点像递归的算法但是用非递归实现
+注意这题题意要求常量空间，那就只能用递归解法了(事实上递归解法的栈也不是常量大小的！！！)
+
 
 样例
 For example,
