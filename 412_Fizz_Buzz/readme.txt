@@ -35,3 +35,15 @@ Return:
     "FizzBuzz"
 ]
 
+412_Fizz_Buzz
+
+
+题目大意
+
+
+解决方案
+
+
+样例
+
+

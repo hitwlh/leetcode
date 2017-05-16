@@ -34,7 +34,18 @@ str = stream.str();
 
 //优先队列
 priority_queue<pair<int, int>> mypq;
+std::priority_queue<int, vector<int>, greater<int>> mypq;
 mypq.push( make_pair(x.second, x.first));
+
+自定义结构
+struct Node {
+    int val, i, j;
+    Node(int i, int j, int val) :i(i), j(j), val(val) {}
+    Node() {}
+    bool operator < (const Node & x)const {
+        return val > x.val;
+    }
+};
 
 //排序、去重
 sort(nums1.begin(), nums1.end());
@@ -49,3 +60,16 @@ nums1.erase(it);
 
 //找minmum
 *min_element(minPath.begin(), minPath.end());
+
+//遍历map
+for(auto it:mymap) it.second
+这种方式不是引用，修改不了mymap
+for(auto it = mymap.begin(); it != mymap.end(); it++)
+it->second可以修改mymap
+
+
+//lower_bound  upper_bound
+ForwardIter lower_bound(ForwardIter first, ForwardIter last, const _Tp& val)算法返回一个非递减序列[first, last)
+中的第一个大于等于值val的位置。
+ForwardIter upper_bound(ForwardIter first, ForwardIter last, const _Tp& val)算法返回一个非递减序列[first, last)
+中第一个大于val的位置。
