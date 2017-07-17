@@ -1,0 +1,24 @@
+442_Find_All_Duplicates_in_an_Array
+
+
+题目大意
+Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Find all the elements that appear twice in this array.
+Could you do it without extra space and in O(n) runtime?
+
+解决方案
+思路：显然这里跟1 ≤ a[i] ≤ n有关，那么我把a[i] 放到第i个位置就是了，至于第i个位置的原始值，递归处理。
+比如[4,3,2,7,8,2,3,1]的处理情况如下：
+7 3 2 4 8 2 3 1 
+3 3 2 4 8 2 7 1 
+2 3 3 4 8 2 7 1 
+3 2 3 4 8 2 7 1 
+这样就处理好了4、7、3、2
+但是最后把3调过来了，发现3和a[3-1]相等，说明3重复了，把3存入结果。
+但是这个3怎么办呢？如果对3不做处理，后面遇到1，会把a[0]处的3 swap，然后再看3，又发现3是重复的(而事实上这个3以前已经push过了)，因此对push过的数字，修改成-1，然后如果遇到-1，就说明这个数字废掉了，不用处理。
+具体还得看代码，讲不清楚，边写边理解的。
+还有个要注意的就是，重复的数字至多出现2次，否则我的代码会错，因为后面第3次遇到3的时候，又会重复push 3到ret里，(当然，这个其实好解决，只需要把nums[3-1]改成-1，表示3已经push过，就行了。)
+
+样例
+
+

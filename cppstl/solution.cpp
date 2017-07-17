@@ -1,3 +1,6 @@
+//sum
+accumulate(nums.begin(), nums.end(), 0);
+
 queue<pair<TreeNode*, TreeNode*>> myq;
 myq.push(make_pair(left->left, right->right));
 TreeNode* left = get<0>(myq.front());
@@ -37,6 +40,20 @@ priority_queue<pair<int, int>> mypq;
 std::priority_queue<int, vector<int>, greater<int>> mypq;
 mypq.push( make_pair(x.second, x.first));
 
+
+struct Node
+{
+    int x,y;
+    Node(int a, int b): x(a), y(b){}
+};
+bool operator >(Node a, Node b){
+    if(a.x != b.x) return a.x > b.x;
+        return a.y > b.y;
+}
+priority_queue<Node, vector<Node>, greater<Node> > capital;
+
+
+
 自定义结构
 struct Node {
     int val, i, j;
@@ -68,8 +85,17 @@ for(auto it = mymap.begin(); it != mymap.end(); it++)
 it->second可以修改mymap
 
 
+map::lower_bound(key):返回map中第一个大于或等于key的迭代器指针
+map::upper_bound(key):返回map中第一个大于key的迭代器指针
+
+
 //lower_bound  upper_bound
 ForwardIter lower_bound(ForwardIter first, ForwardIter last, const _Tp& val)算法返回一个非递减序列[first, last)
 中的第一个大于等于值val的位置。
 ForwardIter upper_bound(ForwardIter first, ForwardIter last, const _Tp& val)算法返回一个非递减序列[first, last)
 中第一个大于val的位置。
+
+
+//获取中位数
+nth_element(nums.begin(), nums.begin() + nums.size()/2, nums.end());
+auto mid = *(nums.begin() + nums.size()/2);

@@ -13,14 +13,12 @@ private:
     int size;
     vector<vector<int>> ret;
     void my_com(vector<int> &tmp, int start, int target){
-        if(start >= size) return;
         for(int i = start; i < size; i++){
             if(my_candidates[i] < target){
                 vector<int> add = tmp;
                 add.push_back(my_candidates[i]);
                 my_com(add, i, target-my_candidates[i]);
             }else if(my_candidates[i] == target){
-                //vector<int> add = tmp;
                 tmp.push_back(my_candidates[i]);
                 ret.push_back(tmp);
                 break;
