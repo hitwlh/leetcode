@@ -13,11 +13,12 @@ The sum of node values in any subtree won't exceed the range of 32-bit integer.
 All the tilt values won't exceed the range of 32-bit integer.
 
 
+求二叉树的坡度，某个结点的坡度的定义为该结点的左子树之和与右子树之和的差的绝对值
 
 
 解决方案
 easy难度。
-先遍历整棵树，自下而上求一个顶点的子树sum
+先遍历整棵树，自下而上求结点的子树sum
 然后自上而下遍历整棵树，求tilt
 然后遍历整棵树，求所有tilt之和
 

@@ -5,6 +5,7 @@ public:
         for(int i = 0; i < nums.size(); i++)
             if(nums[i] == 0);
             else nums[non_zero_index++] = nums[i];
-        for(int i = non_zero_index; i < nums.size(); i++) nums[i] = 0;
+        for(int i = non_zero_index; i < nums.size(); i++)
+            nums[i] = 0;
     }
 };

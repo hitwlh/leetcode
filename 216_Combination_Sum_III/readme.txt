@@ -8,7 +8,7 @@ Find all possible combinations of k numbers that add up to a number n, given tha
 
 解决方案
 这题和39、40是一个系列的。挺容易写的，一个思路，就是递归的时候有新的限制条件而已。
-
+就是这道题的个数是固定的，为k
 
 样例
 Example 1:

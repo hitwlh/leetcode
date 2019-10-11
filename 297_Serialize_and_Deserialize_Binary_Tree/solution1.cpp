@@ -26,7 +26,7 @@ public:
     // Decodes your encoded data to tree.
     TreeNode* deserialize1(string& data) {
         if(data == "") return NULL;
-        string tmp = data.substr(0,data.find(" "));
+        string tmp = data.substr(0, data.find(" "));
         data = data.substr(data.find(" ")+1);
         if(tmp == "#") return NULL;
         TreeNode* root = new TreeNode(atoi(tmp.c_str()));

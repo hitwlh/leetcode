@@ -7,7 +7,7 @@ public:
         for(int i = 0; i < length; i++)
             for(int j = 0; j < length; j++)
                 table[1][i][j] = s1[i]==s2[j], table[0][i][j] = true;
-        for(int l = 1; l <= length; l++)
+        for(int l = 2; l <= length; l++)
             for(int i = 0; i+l <= length; i++)
                 for(int j = 0; j+l <= length; j++)
                     for(int k = 1; k < l; k++){

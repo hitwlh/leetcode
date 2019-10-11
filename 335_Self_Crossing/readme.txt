@@ -11,7 +11,7 @@ Write a one-pass algorithm with O(1) extra space to determine, if your path cros
 http://www.cnblogs.com/grandyang/p/5216856.html
 http://blog.csdn.net/ciaoliang/article/details/50791254
 
-这题的解法是加入把当前画的这笔作为最后一笔，那这一笔是否可能造成Self_Crossing？
+这题的解法是假如把当前画的这笔作为最后一笔，那这一笔是否可能造成Self_Crossing？
 这题的关键在于自己去画，画过之后发现，只有3种Self_Crossing模式，其余所有相交，都可以被转换成这3种模式。这里不方便画图，看链接。
 然后就很容易了，从第3笔开始，看它是否是某种模式，如果是，就找到了，可以返回了。
 

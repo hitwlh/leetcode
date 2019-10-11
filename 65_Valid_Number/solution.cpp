@@ -1,12 +1,15 @@
 class Solution {
 public:
     bool isNumber(string s) {
-        if(s.size() == 0) return false;
+        if(s == "") return false;
         int start = 0;
-        while(s[start] == ' ') ++start;
+        while(start < s.length() and s[start] == ' ') ++start;
         int end = s.size() - 1;
-        while(s[end] == ' ') --end;
-        bool hasNum = false,hasPoint = false,hasE = false;
+        while(end > 0 and s[end] == ' ') --end;
+        // 最后有效位不能是'e+-'
+        if(end >= 0 and (s[end] == 'e' || s[end] == '+' || s[end] == '-'))
+            return false;
+        bool hasNum = false, hasPoint = false, hasE = false;
         for(int i = start; i <= end; ++i){
             if(s[i] == '.'){
                 // 如果前面已经有了'.' 或者 'e'
@@ -25,7 +28,7 @@ public:
                 if(i == start && (s[i] == '+' || s[i] == '-'))
                     continue;
                 // 1e-2
-                else if((i != 0 && s[i-1] == 'e') && (s[i] == '+' || s[i] == '-'))
+                else if((i > start && s[i-1] == 'e') && (s[i] == '+' || s[i] == '-'))
                     continue;
                 else
                     return false;
@@ -33,14 +36,9 @@ public:
             else
                 hasNum = true;
         }//for
-        // 最后有效位不能是'e+-'
-        if(s[end] == 'e' || s[end] == '+' || s[end] == '-')
-            return false;
-        // '.'
-        if(!hasNum && hasPoint)
-            return false;
-        // 全是空格
-        if(end == -1)
+        //5.是合法的！！
+        // '.'或者全是空格
+        if(!hasNum)
             return false;
         return true;
     }

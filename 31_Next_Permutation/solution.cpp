@@ -19,10 +19,6 @@ public:
         else
             left = i+1;
         right = nums.size() - 1;
-        while(left < right){
-            swap(nums[left], nums[right]);
-            left++;
-            right--;
-        }
+        reverse(nums.begin()+left, nums.end());
     }
 };

@@ -2,12 +2,12 @@ class Solution {
 public:
     int countNumbersWithUniqueDigits(int n) {
         if(n == 0) return 1;
-        if(n > 10) return countNumbersWithUniqueDigits(10);
-        int ret = 10, tmp = 1;
+        int sum = 10, last = 9, mul = 9;
         for(int i = 2; i <= n; i++){
-            tmp *= (11-i);
-            ret = ret + 9 * tmp;
+            last *= mul;
+            sum += last;
+            mul --;
         }
-        return ret;
+        return sum;
     }
 };

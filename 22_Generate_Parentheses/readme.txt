@@ -4,6 +4,8 @@
 题目大意
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
+这道题给定一个数字n，让生成共有n个括号的所有正确的形式
+
 解决方案
 ()()()
    ())  

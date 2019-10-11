@@ -15,13 +15,9 @@ public:
         if(!root)   return "";    
         string left = serialize(root->left);
         string right = serialize(root->right);
-        stringstream ss;
-        ss << root->val;
-        string str = ss.str();
+        string str = to_string(root->val);
         int length = left.length();
-        stringstream ss2;
-        ss2 << length;
-        string str2 = ss2.str();
+        string str2 = to_string(length);
         return str2 + " " + left + str + " " + right;
     }
 

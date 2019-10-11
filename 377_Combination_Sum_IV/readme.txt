@@ -10,7 +10,7 @@ Given an integer array with all positive numbers and no duplicates, find the num
 解决方案
 一开始我用递归的方法做，超时了。
 也是怪这题没有写数据范围，如果知道数据范围其实还是相对不那么难想。
-用一个dp数组，dp[i]=j表示用num里的数字拼成i一共有j种排列。
+用一个dp数组，dp[i] = j表示用num里的数字拼成i一共有j种排列。
 对于dp[x]，
 对所有nums[i]<dp[x],dp[x]+=dp[x-nums[i]]
 相当于把nums[i]放在头部

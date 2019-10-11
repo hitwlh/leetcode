@@ -9,21 +9,21 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        ListNode Head(-1);
-        Head.next = head;
-        ListNode *p=&Head;
-        int flag = 0;
+        ListNode* Head = new ListNode(-1);
+        Head->next = head;
+        ListNode *p = Head;
         while(p->next){
-            int val = p->next->val;
             ListNode *q = p->next->next;
-            if(q && q->val == val){
-                while(q && q->val == val){
-                    p->next = q->next;
-                    q = p->next;
+            if(q && q->val == p->next->val){
+                while(q && q->val == p->next->val){
+                    p->next = q;
+                    q = q->next;
                 }
+                p->next = q;
             }
-            else p = p->next;
+            else
+                p = p->next;
         }
-        return Head.next;
+        return Head->next;
     }
 };

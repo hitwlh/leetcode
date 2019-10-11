@@ -10,40 +10,20 @@
 class Solution {
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        if(preorder.empty()) return NULL;
-        my_preorder = preorder, my_inorder = inorder;
-        TreeNode* root = new TreeNode(preorder[0]);
-        int size;
-        for(int i = 0; i < inorder.size(); i++){
-            if(inorder[i] == preorder[0]){
-                size = i;
-                break;
-            }
-        }
-        root->left = my_buildTree(1, size, 0, size-1);
-        root->right = my_buildTree(size+1, preorder.size()-1, size+1, inorder.size()-1);
-        return root;
+        for(int i = 0; i < preorder.size(); i++)
+            in_index[inorder[i]] = i;
+        return buildSonTree(preorder, inorder, 0, preorder.size()-1, 0, inorder.size()-1);
     }
 private:
-    vector<int> my_preorder, my_inorder;
-    TreeNode* my_buildTree(int preorder_start, int preorder_end, int inorder_start, int inorder_end) {
-        TreeNode* root = NULL;
-        if(preorder_start < preorder_end){
-            root = new TreeNode(my_preorder[preorder_start]);
-            int size = -1;
-            for(int i = inorder_start; i <= inorder_end; i++)
-                if(my_inorder[i] == my_preorder[preorder_start]){
-                    size = i;
-                    break;
-                }
-            if(size == -1) cout << "fuck!!\n", exit(0);
-            size -= inorder_start;
-            root->left = my_buildTree(preorder_start+1, preorder_start+size, inorder_start, inorder_start+size-1);
-            root->right = my_buildTree(preorder_start+size+1, preorder_end, inorder_start+size+1, inorder_end);
-        }
-        else if(preorder_start == preorder_end){
-            root = new TreeNode(my_preorder[preorder_start]);
-        }
+    unordered_map<int, int> pre_index, in_index;
+    TreeNode* buildSonTree(vector<int>& preorder, vector<int>& inorder, int pleft, int pright, int ileft, int iright){
+        if(pleft > pright) return NULL;
+        TreeNode* root = new TreeNode(preorder[pleft]);
+        int mid_index = in_index[preorder[pleft]];
+        int nums = mid_index - ileft;
+        root->left = buildSonTree(preorder, inorder, pleft+1, pleft+nums, ileft, mid_index - 1);
+        nums = iright - mid_index;
+        root->right = buildSonTree(preorder, inorder, pright-nums+1, pright, mid_index+1, iright);
         return root;
     }
 };

@@ -12,7 +12,9 @@ To make problem a bit easier, all A, B, C, D have same length of N where 0 ≤ N
 解决方案
 先把2个vector里所有二元和建立到hash里，然后对另两个vector遍历，看hash里相反数的个数。看一下代码非常清楚。
 
-
+solutoin2.cpp
+用二分法，把前2个列表、后两个列表分别作和，然后遍历第一个列表的元素s1[i],在第二个列表里找-s1[i]
+这里好玩的地方在于，要求第二个列表里有多少个-s1[i]，我的代码一遍ac，非常爽。要分别求-target的最左侧和最右侧，非常有意思！
 
 
 样例

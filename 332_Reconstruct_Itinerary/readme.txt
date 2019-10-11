@@ -10,7 +10,7 @@ All airports are represented by three capital letters (IATA code).
 You may assume all tickets form at least one valid itinerary.
 
 
-
+这道题给我们一堆飞机票，让我们建立一个行程单
 
 解决方案
 处理到一个点a时有如下三种可能：

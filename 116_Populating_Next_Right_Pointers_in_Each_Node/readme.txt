@@ -21,7 +21,7 @@ You may assume that it is a perfect binary tree (ie, all leaves are at the same 
 解决方案
 1. 层序遍历，并且在每层末尾往push一个NULL，solution1.cpp
 2. 递归，根据当前层设置下一层，然后找到下一层起点，递归处理， solution2.cpp
-
+4. 顺着题目做，根据next来处理，这个是O(N)时间，O(1)空间， solution3.cpp
 solution.cpp里保存的是最初的解法，有点像递归的算法但是用非递归实现
 注意这题题意要求常量空间，那就只能用递归解法了(事实上递归解法的栈也不是常量大小的！！！)
 

@@ -9,7 +9,7 @@ public:
     }
 private:
     void dfs(int index, vector<int> value){
-        int num = value[value.size()-1];
+        int num = value.back();
         if(index+1 >= my_nums.size())
             return;
         if(my_nums[index+1] >= num){

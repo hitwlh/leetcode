@@ -10,17 +10,13 @@ class Solution {
 public:
     UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
         if(!node) return NULL;
-        return dfs(node);
+        if(mmap.find(node) != mmap.end()) return mmap[node];
+        UndirectedGraphNode *p = new UndirectedGraphNode(node->label);
+        mmap[node] = p;
+        for(auto i: node->neighbors)
+            p->neighbors.push_back(cloneGraph(i));
+        return p;
     }
 private:
-    map<UndirectedGraphNode *, UndirectedGraphNode *> visit;
-    UndirectedGraphNode *dfs(UndirectedGraphNode *now){
-        if(visit.find(now) == visit.end()){
-            UndirectedGraphNode *copy = new UndirectedGraphNode(now->label);
-            visit[now] = copy;
-            for(int i = 0; i < now->neighbors.size(); i++)
-                copy->neighbors.push_back(dfs(now->neighbors[i]));
-        }
-        return visit[now];
-    }
+    unordered_map<UndirectedGraphNode *, UndirectedGraphNode *> mmap;
 };

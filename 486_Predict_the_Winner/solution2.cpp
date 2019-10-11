@@ -20,6 +20,4 @@ public:
 private:
     vector<vector<int>> player;
     vector<int> sum;
-    
-    
 };

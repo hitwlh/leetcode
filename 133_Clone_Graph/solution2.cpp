@@ -10,33 +10,27 @@ class Solution {
 public:
     UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
         if(!node) return NULL;
-        que.push(node);
+        myque.push(node);
         UndirectedGraphNode *HEAD = new UndirectedGraphNode(node->label);
-        uumap[node] = HEAD;
-        que.push(node);
-        bfs();
+        mmap[node] = HEAD;
+        while(!myque.empty()){
+            UndirectedGraphNode* front = myque.front();
+            myque.pop();
+            for(auto i: front->neighbors){
+                if(i){
+                    if(mmap.find(i) == mmap.end()){
+                        UndirectedGraphNode *p = new UndirectedGraphNode(i->label);
+                        mmap[i] = p;
+                        myque.push(i);
+                    }
+                    mmap[front]->neighbors.push_back(mmap[i]);
+                }else
+                    mmap[front]->neighbors.push_back(NULL);
+            }
+        }
         return HEAD;
     }
 private:
-    map<UndirectedGraphNode *, UndirectedGraphNode *> uumap;
-    map<UndirectedGraphNode *, bool> visit;
-    queue<UndirectedGraphNode *> que;
-    void bfs(){
-        while(!que.empty()){
-            UndirectedGraphNode *top = que.front();
-            que.pop();
-            if(visit.find(top) == visit.end()){
-                visit[top] = true;
-                for(int i = 0; i < top->neighbors.size(); i++){
-                    if(uumap.find(top->neighbors[i]) == uumap.end()){
-                        //visit[top->neighbors[i]] = true;
-                        UndirectedGraphNode *use = new UndirectedGraphNode(top->neighbors[i]->label);
-                        uumap[top->neighbors[i]] = use;
-                        uumap[top]->neighbors.push_back(use);
-                        que.push(top->neighbors[i]);
-                    }else uumap[top]->neighbors.push_back(uumap[top->neighbors[i]]);
-                }
-            }
-        }
-    }
+    unordered_map<UndirectedGraphNode *, UndirectedGraphNode *> mmap;
+    queue<UndirectedGraphNode *> myque;
 };

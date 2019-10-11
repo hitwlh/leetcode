@@ -20,6 +20,9 @@ flag[i] == true 表示已经划分过以my_s[i]为起点的串
 ret[i] 表示以my_s[i]为起点的串的划分结果
 
 
+solution3.cpp
+从右往左看，这样就不需要递归调用
+
 样例
 For example, given s = "aab",
 Return

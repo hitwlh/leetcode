@@ -1,107 +1,85 @@
-class node
-{
-    public:
+class node{
+public:
     node *next[26];
     bool flag;
     node():flag(false){
-        for(int i=0;i<26;i++)
+        for(int i = 0; i < 26; i++)
             next[i] = NULL;
-    } 
+    }
 };
-class Trie {
+class Trie{
 public:
-    /** Initialize your data structure here. */
-    Trie() {
-        root = new node;
+    node *root;
+    Trie(){
+        root = new node();
     }
-    
-    /** Inserts a word into the trie. */
-    void insert(string word) {
-        node *p = root;
-        for(auto i: word){
-            if(!p->next[i - 'a'])
-                p->next[i-'a'] = new node();
-            p = p->next[i-'a'];
+    void insert(string word){
+        node *t = root;
+        for(int i = 0; i < word.length(); i++){
+            if(!t->next[word[i]-'a'])
+                t->next[word[i]-'a'] = new node();
+            t = t->next[word[i]-'a'];
         }
-        p->flag = true;
+        t->flag = true;
     }
-    
-    /** Returns if the word is in the trie. */
-    bool search(string word) {
-        node *p = root;
-        for(auto i: word){
-            if(!p->next[i-'a'])
-                return false;
-            p = p->next[i-'a'];
-        }
-        return p->flag;
-    }
-    
-    /** Returns if there is any word in the trie that starts with the given prefix. */
-    bool startsWith(string prefix) {
-        node *p = root;
-        for(auto i: prefix){
-            if(!p->next[i-'a'])
-                return false;
-            p = p->next[i-'a'];
-        }
-        return true;
-    }
-    bool del(node* now, string prefix) {
-        if(!now->next[prefix[0]-'a'])
+    bool del(node *p, string prefix){
+        if(p->next[prefix[0] - 'a'] == NULL)
             return false;
-        if(prefix.size() == 1){
-            now->next[prefix[0]-'a']->flag = false;
-            for(int i = 0; i < 26; i++)
-                if(now->next[prefix[0]-'a']->next[i]) return false;
-            delete now->next[prefix[0]-'a'];
-            now->next[prefix[0] - 'a'] = NULL;
+        if(prefix.length() == 1){
+            p->next[prefix[0]-'a']->flag = false;
+            for(int i = 0; i < 26; i++){
+                if(p->next[prefix[0]-'a']->next[i])
+                    return false;
+            }
+            delete p->next[prefix[0]-'a'];
+            p->next[prefix[0]-'a'] = NULL;
             return true;
         }
-        if(del(now->next[prefix[0] - 'a'], prefix.substr(1))){
+        if(del(p->next[prefix[0]-'a'], prefix.substr(1))){
             for(int i = 0; i < 26; i++)
-                if(now->next[prefix[0]-'a']->next[i]) return false;
-            delete now->next[prefix[0]-'a'];
-            now->next[prefix[0] - 'a'] = NULL;
+                if(p->next[i]) return false;
+            delete p->next[prefix[0]-'a'];
+            p->next[prefix[0]-'a'] = NULL;
             return true;
         }
         return false;
     }
-    
-
-    node *root;
 };
 class Solution {
 public:
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
-        if(board.empty() || board[0].empty()) return ret;
-        for(auto i: words)
-            T.insert(i);
-        flag.assign(board.size(), vector<bool>(board[0].size(), false));
-        for(int i = 0; i < board.size(); i++){
-            for(int j = 0; j < board[0].size(); j++){
-                dfs(board, i, j, "");
-            }
-        }
+        m = board.size(), n = board[0].size();
+        visited.assign(m, vector<bool>(n, false));
+        boar = board;
+        for(auto word: words)
+            root->insert(word);
+        for(int i = 0; i < m; i++)
+            for(int j = 0; j < n; j++)
+                dfs(root->root, i, j);
         return ret;
     }
 private:
+    vector<vector<bool>> visited;
+    vector<vector<char>> boar;
     vector<string> ret;
-    Trie T;
-    int d[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    vector<vector<bool>> flag;
-    void dfs(vector<vector<char>>& board, int x, int y, string word){
-        if(x < 0 || x >= board.size() || y < 0 || y >= board[0].size()) return;
-        if(flag[x][y]) return;
-        word += board[x][y];
-        if(!T.startsWith(word)) return;
-        if(T.search(word)){
-            ret.push_back(word);
-            T.del(T.root, word);
+    string path;
+    int m, n;
+    Trie *root = new Trie();
+    void dfs(node *p, int i, int j){
+        if(!p || i < 0 || i >= m || j < 0 || j >= n || visited[i][j] || p->next[boar[i][j]-'a'] == NULL)
+            return;
+        path += boar[i][j];
+        //pt = p->next[boar[i][j]-'a'], 后面用pt的话，会报错，很奇怪！
+        if(p->next[boar[i][j]-'a']->flag){
+            ret.push_back(path);
+            root->del(root->root, path);
         }
-        flag[x][y] = true;
-        for(int i = 0; i < 4; i++)
-            dfs(board, x+d[i][0], y+d[i][1], word);
-        flag[x][y] = false;
+        visited[i][j] = true;
+        dfs(p->next[boar[i][j]-'a'], i+1, j);
+        dfs(p->next[boar[i][j]-'a'], i-1, j);
+        dfs(p->next[boar[i][j]-'a'], i, j+1);
+        dfs(p->next[boar[i][j]-'a'], i, j-1);
+        path.pop_back();
+        visited[i][j] = false;
     }
 };

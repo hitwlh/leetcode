@@ -5,9 +5,11 @@
 Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
 For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, return 2 because 13 = 4 + 9.
 
+给我们一个正整数，求它最少能由几个完全平方数组成。
+
 解决方案
 这题的tag是广搜、数论、动规。
-但是广搜的解法没想到，网上也没见到刚搜ac的代码，也懒得找了，这题直观看明显是dp。
+但是广搜的解法没想到，网上也没见到广搜ac的代码，也懒得找了，这题直观看明显是dp。
 
 dp解法
 需要从n往前遍历一遍找到最合适的，为什么要遍历？一开始我想的是尽量每次减多一点

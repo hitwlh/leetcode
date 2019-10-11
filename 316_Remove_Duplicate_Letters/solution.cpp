@@ -10,7 +10,7 @@ public:
         for(int i = 0; i < s.length(); i++){
             time[s[i] - 'a']--;
             if(visited[s[i] - 'a'] == true)
-                continue;   
+                continue;
             visited[s[i] - 'a'] = true;
             while(!mysta.empty() && time[mysta.top() - 'a'] > 0 && s[i] < mysta.top()){
                 visited[mysta.top() - 'a'] = false;

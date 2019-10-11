@@ -1,3 +1,4 @@
+//第二种解法
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -13,7 +14,9 @@ public:
         if(!root)
             return true;
         int lef = length(root->left);
+        if(!flag) return false;
         int rig = length(root->right);
+        if(!flag) return false;
         if(fabs(lef-rig) <=1 && flag)
             return true;
         return false;
@@ -21,8 +24,6 @@ public:
 private:
     bool flag = true;
     int length(TreeNode* root){
-        if(!flag)
-            return 0;
         if(!root || ! flag)
             return 0;
         int left_l = length(root->left);

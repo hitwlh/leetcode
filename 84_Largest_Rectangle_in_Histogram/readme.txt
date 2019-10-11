@@ -5,6 +5,8 @@
 Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
 
 解决方案
+
+
 有两种解法：
 
 1.
@@ -19,9 +21,11 @@ Given n non-negative integers representing the histogram's bar height where the 
 
 2.
 参考http://blog.csdn.net/revivedsun/article/details/52420679
-用一个升序栈，顺序遍历，如果当前的值小于栈顶，那就一直弹栈，直到栈为空或者栈顶小于当前的值，那么，以当前的值为右边界，栈顶为左边界的矩形就是1️以当前的值为右边界所能获得的最大矩形面积
+用一个升序栈，顺序遍历，如果当前的值小于栈顶，那就一直弹栈，直到栈为空或者栈顶小于当前的值，那么，以当前的值为右边界，栈顶为左边界的矩形就是以当前的值为右边界所能获得的最大矩形面积
 这种解法对应solution2.cpp
 
+
+第11、42、84、85题结合看
 样例
 Given heights = [2,1,5,6,2,3],
 return 10.

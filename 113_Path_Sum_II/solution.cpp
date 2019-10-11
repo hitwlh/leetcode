@@ -9,12 +9,13 @@
  */
 class Solution {
 public:
-    vector<vector<int>> res;
     vector<vector<int>> pathSum(TreeNode* root, int sum) {
         vector<int> re;
         hasPathSum(re, root, sum);
         return res;
     }
+private:
+    vector<vector<int>> res;
     void hasPathSum(vector<int> path, TreeNode* root, int sum) {
         if(!root)
             return;

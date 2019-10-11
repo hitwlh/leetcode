@@ -1,11 +1,7 @@
 class Solution {
 public:
     int getMoneyAmount(int n) {
-        vector<int> tmp;
-        tmp.assign(n+1, 0);
-        result.assign(n+1, tmp);
-        for(int i = 1; i <= n; i++)
-            result[i][i] = 0;
+        result.assign(n+1, vector<int>(n+1, 0));
         for(int i = 2; i <= n; i++){//i是区间容量
             for(int j = 1; j <= n - i + 1; j++){//j是区间[j, j+i-1]的起点
                 int MIN = INT_MAX;

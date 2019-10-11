@@ -1,15 +1,15 @@
 class Solution {
 public:
     int findNthDigit(int n) {
-        int flag = 1;
-        while(n > pow(10, flag-1) * flag * 9){
-            n = n - pow(10, flag-1) * flag * 9;
-            flag++;
+        int k = 1;
+        while(n > 9 * pow(10, k-1) * k){
+            n -=  9 * pow(10, k-1) * k;
+            k++;
         }
-        int number = (n-1) / flag + pow(10, flag-1);
-        int digit = (flag-1) - (n-1) % flag;
-        while(digit--)
-            number /= 10;
+        int number = (n-1) / k + pow(10, k-1), digit;
+        if(n % k == 0) return number % 10;
+        digit = k - n % k;
+        while(digit--) number /= 10;
         return number % 10;
     }
 };

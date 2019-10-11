@@ -10,28 +10,13 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        myq.push(make_pair(root, root));
-        return IsSame();
+        if(!root) return true;
+        return isS(root->left, root->right);
     }
 private:
-    queue<pair<TreeNode*, TreeNode*>> myq;
-    vector<int> tree;
-    bool IsSame(){
-        while(!myq.empty()){
-            TreeNode* left = get<0>(myq.front());
-            TreeNode* right = get<1>(myq.front());
-            myq.pop();
-            if(!left && !right)
-                continue;
-            if(!left && right)
-                return false;
-            if(left && !right)
-                return false;
-            if(left->val != right-> val)
-                return false;
-            myq.push(make_pair(left->left, right->right));
-            myq.push(make_pair(left->right, right->left));
-        }
-        return true;
+    bool isS(TreeNode* left, TreeNode* right){
+        if(!left && !right) return true;
+        if(!left || !right || left->val != right->val) return false;
+        return isS(left->left, right->right) && isS(left->right, right->left);
     }
 };

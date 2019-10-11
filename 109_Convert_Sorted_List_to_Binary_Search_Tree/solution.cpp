@@ -18,35 +18,28 @@
 class Solution {
 public:
     TreeNode* sortedListToBST(ListNode* head) {
-        if(!head) return NULL;
-        ListNode* tmp = head;
-        while(tmp->next) tmp = tmp->next;
-        return my_sortedListToBST(head, tmp);
+        return sortedTree(head);
     }
 private:
-    TreeNode* my_sortedListToBST(ListNode* left, ListNode* right) {
-        //if(left == right || (left != NULL && left->next == NULL))
-        if(left == right)
-            return left == NULL ? NULL : new TreeNode(left->val);
-        if(left != NULL && right != NULL && left->next == right){
-            TreeNode *root = new TreeNode(left->val);
-            root->left = NULL;
-            root->right = new TreeNode(right->val);
-            return root;
+    vector<ListNode*> break_by_medium(ListNode* head){
+        if(!head || !head->next) return {head, NULL, NULL};
+        ListNode* fast = head, *slow = head, *slow_father, *slow_son;
+        while(fast && fast->next){
+            fast = fast->next->next;
+            slow_father = slow;
+            slow = slow->next;
         }
-        if(right != NULL && right->next == left) return NULL;
-        //if(!left) return NULL;
-        ListNode *middle = left, *tmp = left;
-        if(tmp != right && tmp->next != NULL) tmp = tmp->next;
-        if(tmp != right && tmp->next != NULL) tmp = tmp->next;
-        while(tmp != right){
-            middle = middle->next;
-            tmp = tmp->next;
-            if(tmp != right) tmp = tmp->next;
-        }
-        TreeNode *root = new TreeNode(middle->next->val);
-        root->left = my_sortedListToBST(left, middle);
-        root->right = my_sortedListToBST(middle->next->next, right);
-        return root;
+        slow_father->next = NULL;
+        slow_son = slow->next;
+        return {slow, head, slow_son};
+    }
+    TreeNode* sortedTree(ListNode* head){
+        if(!head) return NULL;
+        vector<ListNode*> vec = break_by_medium(head);
+        if(!vec[0]) return NULL;
+        TreeNode* middle = new TreeNode(vec[0]->val);
+        middle->left = sortedTree(vec[1]);
+        middle->right = sortedTree(vec[2]);
+        return middle;
     }
 };

@@ -25,21 +25,15 @@ private:
             for(int i = start_x; i < end_x; i++) ret.push_back(my_matrix[i][end_y-1]);
             return ;
         }
-        debug();
-        for(int i = start_y; i < end_y-1; i++) ret.push_back(my_matrix[start_x][i]);
-        debug();
-        for(int i = start_x; i < end_x-1; i++) ret.push_back(my_matrix[i][end_y-1]);
-        debug();
-        for(int i = end_y-1; i > start_y; i--) ret.push_back(my_matrix[end_x-1][i]);
-        debug();
-        for(int i = end_x-1; i > start_x; i--) ret.push_back(my_matrix[i][start_y]);
-        debug();
+        for(int i = start_y; i < end_y-1; i++)
+            ret.push_back(my_matrix[start_x][i]);
+        for(int i = start_x; i < end_x-1; i++)
+            ret.push_back(my_matrix[i][end_y-1]);
+        for(int i = end_y-1; i > start_y; i--)
+            ret.push_back(my_matrix[end_x-1][i]);
+        for(int i = end_x-1; i > start_x; i--)
+            ret.push_back(my_matrix[i][start_y]);
         r_spiral(start_x+1, start_y+1, end_x-1, end_y-1);
-    }
-    void debug(){
-        cout << "ret: ";
-        for(auto i: ret) cout << i << " ";
-        cout << endl;
     }
     vector<int> ret;
     vector<vector<int>> my_matrix;

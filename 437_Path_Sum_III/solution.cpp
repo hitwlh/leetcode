@@ -9,38 +9,18 @@
  */
 class Solution {
 public:
-    int res;
     int pathSum(TreeNode* root, int sum) {
-        res = 0;
-        queue<TreeNode *> q;
-        q.push(root);
-        TreeNode * p;
-        while(!q.empty()){
-            p = q.front();
-            q.pop();
-            if(p){
-                q.push(p->left);
-                q.push(p->right);
-            }
-            hasPathSum(p, sum);
-        }
-        return res;
+        if(!root) return 0;
+        return search(root, sum) + pathSum(root->left, sum) + pathSum(root->right, sum);
     }
-    void hasPathSum(TreeNode* root, int sum) {
-        if(!root)
-            return;
-        /*cout << "=========================" << endl;
-        cout << "root->val is: " << root->val << endl;
-        cout << "sum: " << sum << endl;
-        cout << "=========================" << endl;*/
-        if(root->val == sum){
-            res++;
-            hasPathSum(root->left, 0);
-            hasPathSum(root->right, 0);
-            return;
-        }
-        hasPathSum(root->left, sum-root->val);
-        hasPathSum(root->right, sum-root->val);
-        return ;
+private:
+    int ret = 0;
+    int search(TreeNode* root, int sum){
+        if(!root) return 0;
+        int ans = 0;
+        if(root->val == sum) ans += 1;
+        int left = search(root->left, sum-root->val);
+        int right = search(root->right, sum-root->val);
+        return left+right+ans;
     }
 };

@@ -17,7 +17,7 @@ To sum up, pick a list of at most k distinct projects from given projects to max
 翻译：初始金额为W，如果金额大于Capital[i]，就可以从事Capital[i]并且获得Profits[i]，最多可做k次
 这题总想法非常简单，就是不停贪心就是了。但是具体怎么写呢？一开始的版本是每次遍历整个capital，查找可以没用过且可以用的里收益最大的，这样总的开销就是O(k*n)，n=capital.size()
 正确的思路：用一个大根堆profits存储Profits[i]，小根堆capital存储(Capital[i], Profits[i])。
-一开始把能用的project扔到大根堆里，不能用的扔到小根堆里。然后从大根堆挑出最大的用，更新W，再根据新的W把小根堆里的项目把能用的的收益放到小根堆里。这样的最坏开销所有大根堆里的都要放到小根堆里去，这样的开销是O(nlgn)
+一开始把能用的project扔到大根堆里，不能用的扔到小根堆里。然后从大根堆挑出最大的用，更新W，再根据新的W把小根堆里的项目把能用的收益放到大根堆里。这样的最坏开销所有小根堆里的都要放到大根堆里去，这样的开销是O(nlgn)
 代码不难写，关键是一些stl的运用还得看看(自定义优先队列)。
 
 

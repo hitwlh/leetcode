@@ -9,7 +9,7 @@ public:
             for(int j = i-1; j >= 0; j--)
                 if(envelopes[j].first < envelopes[i].first && envelopes[j].second < envelopes[i].second)
                     MAX = max(MAX, num[j]);
-            num[i] += MAX;
+            num[i] = MAX+1;
         }
         //return num[num.size()-1];
         int MAX = 0;

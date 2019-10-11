@@ -25,6 +25,10 @@ H_MIN[i] = min(nums[i], nums[i] * H_MIN[i+1]);
 
 MAX[i] = max(H_MAX[i], MAX[i+1]);
 
+solution2.cpp
+简化写法
+
+
 样例
 For example, given the array [2,3,-2,4],
 the contiguous subarray [2,3] has the largest product = 6.

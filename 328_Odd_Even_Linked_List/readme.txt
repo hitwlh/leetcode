@@ -7,9 +7,9 @@ Given a singly linked list, group all odd nodes together followed by the even no
 You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
 
 解决方案
-这题本身挺容易的，但是有个易错的点
-one-time-attention:
-把原队列打断为两段之后，前半段的末尾要和后半段连接上，这是很容易的，但是千万记住后半段的末尾要置为NULL!否则可能后半段的末尾指向前半段造成环
+
+给了我们一个链表，让我们分开奇偶节点，所有奇节点在前，偶节点在后。
+
 
 样例
 Example:

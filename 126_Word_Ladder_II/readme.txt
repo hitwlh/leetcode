@@ -29,7 +29,7 @@ Each transformed word must exist in the word list. Note that beginWord is not a 
 "tax"
 ["ted","tex","red","tax","tad","den","rex","pee"]
 为例，解是[["red","ted","tad","tax"],["red","ted","tex","tax"],["red","rex","tex","tax"]]
-由于tex有两个不同的父亲，因此tad和rex都可以让tex入队列，而如果tex入两次队列，就会导致tax找到“两个”一样的father“tex”，事实上tax的“tex”father只有一个，是以tex为father的路径有两条，因为tex有两个father。如果tax有两个father，后面的dfs就不对了。所以入队的时候要确保队列中无重复元素。所以队列是用unordered_set<string> que[2];表示的。其实这里的队列也不是严格的广搜的队列了，因为某一层内部谁先谁后没有关系。
+由于tex有两个不同的父亲，因此ted和rex都可以让tex入队列，而如果tex入两次队列，就会导致tax找到“两个”一样的father“tex”，事实上tax的“tex”father只有一个，是以tex为father的路径有两条，因为tex有两个father。如果tax有两个father，后面的dfs就不对了。所以入队的时候要确保队列中无重复元素。所以队列是用unordered_set<string> que[2];表示的。其实这里的队列也不是严格的广搜的队列了，因为某一层内部谁先谁后没有关系。
 
 
 

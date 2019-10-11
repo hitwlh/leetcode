@@ -1,9 +1,8 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int ret = nums.front();
-        int count = 0;
-        for(int i=0;i<nums.size();i++){
+        int ret = nums.front(), count = 1;
+        for(int i = 1; i < nums.size(); i++){
             if(ret == nums[i])
                 count ++;
             else{

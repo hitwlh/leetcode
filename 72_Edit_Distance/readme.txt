@@ -11,6 +11,9 @@ b) Delete a character
 c) Replace a character
 
 解决方案
+
+dp[i][j] =  dp[i - 1][j - 1] if word1[i - 1] == word2[j - 1]
+            min(dp[i - 1][j - 1], min(dp[i - 1][j], dp[i][j - 1])) + 1
 很经典的动规，空间复杂度应该应该可以优化到 M+N+O(min(M,N))
 那样写有点麻烦，solution.cpp里是O(MN)
 

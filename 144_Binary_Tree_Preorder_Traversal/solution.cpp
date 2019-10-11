@@ -19,13 +19,13 @@ private:
     stack<TreeNode*> q;
     void search(){
         while(!q.empty()){
-        TreeNode* root = q.top();
-        q.pop();
-        if(!root)
-            continue;
-        ret.push_back(root->val);
-        q.push(root->right);
-        q.push(root->left);
+            TreeNode* root = q.top();
+            q.pop();
+            if(!root)
+                continue;
+            ret.push_back(root->val);
+            q.push(root->right);
+            q.push(root->left);
         }
     }
 };

@@ -1,50 +1,41 @@
 class Solution {
 public:
     void solveSudoku(vector<vector<char>>& board) {
-        my_board = board;
-        vector<int> tmp;
-        if(board[0][0] == '.') {tmp.push_back(0), tmp.push_back(0);}
-        tmp = find_next(0, 0);
-        my_solveSudoku(tmp[0], tmp[1]);
-        board = my_board;
+        for(int i = 0; i < board.size(); i++)
+            for(int j = 0; j < board[0].size(); j++)
+                if(board[i][j] == '.') empty.push_back({i, j});
+        dfs(board);
     }
 private:
-    vector<vector<char>> my_board;
-    bool my_solveSudoku(int start_x, int start_y) {
-        if(start_x == 9 && start_y == 0) return true;
-        for(char c = '1'; c <= '9' ; c++){
-            my_board[start_x][start_y] = c;
-            if(valid(start_x, start_y)){
-                vector<int> tmp = find_next(start_x, start_y);
-                if(my_solveSudoku(tmp[0], tmp[1])){
+    int dfs_times = 0;
+    vector<pair<int, int>> empty;
+    bool dfs(vector<vector<char>>& board){
+        if(dfs_times >= empty.size())
+            return true;
+        int x = empty[dfs_times].first, y = empty[dfs_times].second;
+        for(char c = '1'; c <= '9'; c++){
+            board[x][y] = c;
+            if(valid(x, y, board)){
+                dfs_times++;
+                if(dfs(board)){
+                    dfs_times--;
                     return true;
                 }
-                else{
-                    my_board[start_x][start_y] = '.';
-                }
+                dfs_times--;
             }
-            else
-                my_board[start_x][start_y] = '.';
         }
+        board[x][y] = '.';
         return false;
     }
-    vector<int> find_next(int x, int y){
-        int i = x,j = y;
-        for(i; i<9; i++, j = 0)
-            for(; j<9; j++)
-                if(my_board[i][j] == '.') return {i,j};
-        return {i, j};
-    }
-    bool valid(int i, int j){
-        //map<char, bool> my_map1, my_map2, my_map3;
+    bool valid(int x, int y, vector<vector<char>>& board){
         for(int k = 0; k < 9; k++){
-                if(my_board[i][k] == my_board[i][j] && k != j) return false;
-                if(my_board[k][j] == my_board[i][j] && k != i) return false;
+            if(board[x][k] == board[x][y] && k != y) return false;
+            if(board[k][y] == board[x][y] && k != x) return false;
         }
-        int start_x = (i/3)*3, start_y = (j/3)*3;
-        for(int k = start_x; k<start_x+3; k++){
-            for(int l = start_y; l<start_y+3; l++){
-                    if(my_board[k][l] == my_board[i][j] && !(k==i && l==j)) return false;
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if(board[x][y] == board[x/3*3+i][y/3*3+j] && (x != x/3*3+i || y != y/3*3+j))
+                    return false;
             }
         }
         return true;

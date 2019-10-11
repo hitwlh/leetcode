@@ -12,6 +12,7 @@ Given a positive integer, return its corresponding column title as appear in an 
 要考虑：
 26转成26进制是Z
 27转成26进制是AA
+52转存26进制是AZ
 53转成26进制是BA
 
 样例

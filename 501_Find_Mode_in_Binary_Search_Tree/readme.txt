@@ -8,6 +8,10 @@ The left subtree of a node contains only nodes with keys less than or equal to t
 The right subtree of a node contains only nodes with keys greater than or equal to the node's key.
 Both the left and right subtrees must also be binary search trees.
 
+
+找二分搜索数的众数
+
+
 解决方案
 中根遍历一下得到递增序列，然后遍历找重复次数最大的就是了
 

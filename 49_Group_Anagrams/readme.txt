@@ -4,6 +4,7 @@
 题目大意
 Given an array of strings, group anagrams together.
 
+这道题让我们群组给定字符串集中所有的错位词，所谓的错位词就是两个字符串中字母出现的次数都一样，只是位置不同，比如abc，bac, cba等它们就互为错位词
 
 解决方案
 这题比较简单，整体就是把每个string映射到它属于的组里去。

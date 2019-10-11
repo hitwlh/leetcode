@@ -11,8 +11,7 @@ class Solution {
 public:
     int countNodes(TreeNode* root) {
         if(!root) return 0;
-        TreeNode* left = root->left;
-        TreeNode* right = root->right;
+        TreeNode* left = root->left, *right = root->right;
         int left_count = 1, right_count = 1;
         while(left){
             left = left->left;

@@ -29,6 +29,13 @@ string str = "123";
 int n = atoi(str.c_str());
 
 //char to string
+1.
+""+c
+
+2.
+string s(1, c)
+
+3.
 char c;
 string str;
 stringstream stream;
@@ -52,9 +59,14 @@ bool operator >(Node a, Node b){
 }
 priority_queue<Node, vector<Node>, greater<Node> > capital;
 
+struct ListNodeComp {
+    bool operator () (const ListNode *n1, const ListNode *n2) const {
+        return n1->val > n2->val;
+    }
+};
+priority_queue<ListNode*, vector<ListNode*>, ListNodeComp> my_pq;
 
-
-自定义结构
+自定义结构1
 struct Node {
     int val, i, j;
     Node(int i, int j, int val) :i(i), j(j), val(val) {}
@@ -63,6 +75,10 @@ struct Node {
         return val > x.val;
     }
 };
+自定义结构2(第23题，需要在节点外自己定义比较函数)
+bool operator () (const ListNode *n1, const ListNode *n2) const {
+    return n1->val > n2->val;
+}
 
 //排序、去重
 sort(nums1.begin(), nums1.end());
@@ -99,3 +115,51 @@ ForwardIter upper_bound(ForwardIter first, ForwardIter last, const _Tp& val)算�
 //获取中位数
 nth_element(nums.begin(), nums.begin() + nums.size()/2, nums.end());
 auto mid = *(nums.begin() + nums.size()/2);
+
+
+//堆
+struct Node {
+    int val, i, j;
+    Node(int i, int j, int val) :i(i), j(j), val(val) {}
+    Node() {}
+    bool operator < (const Node & x)const {
+        return val > x.val;
+    }
+};
+priority_queue<Node> mypq;
+mypq.push(Node(0, 0, matrix[0][0]));
+
+//获取
+
+/*{
+  'articles': [
+    [
+      {
+        'text': 'This is a short article.',
+        'width': 15,
+      },
+      {
+        'text': 'Now for a longer article. This one has a lot of text.',
+        'width': 16,
+      },
+    ],
+    [
+      {
+        'text': 'Another article with medium length.',
+        'width': 32,
+      },
+    ],
+  ],
+  'width': 32,
+}
+
++--------------------------------+
+|This is a short|Now for a longer|
+|article.       |article. This   |
+|               |one has a lot of|
+|               |text.           |
++--------------------------------+
+|Another article with medium     |
+|length.                         |
++--------------------------------+
+*/

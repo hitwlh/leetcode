@@ -6,6 +6,7 @@ Given a sorted array and a target value, return the index if the target is found
 
 解决方案
 直接遍历即可
+方案2：二分法
 
 样例
 [1,3,5,6], 5 → 2

@@ -14,8 +14,6 @@ public:
         preorder(s);
         w = 1;
         preorder(t);
-        //cout << str[0] << endl;
-        //cout << str[1] << endl;
         return str[0].find(str[1]) != string::npos;
     }
 private:

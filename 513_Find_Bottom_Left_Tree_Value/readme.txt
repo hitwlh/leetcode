@@ -8,6 +8,10 @@ Given a binary tree, find the leftmost value in the last row of the tree.
 和515. Find Largest Value in Each Tree Row很像，那题是要找到每层的最大元素，这题是要找每层的起始元素。
 直接粘贴了那题的大部分代码
 
+
+solution2.cpp
+dfs
+//每次优先向左走，然后看当前到的地方是否是新的一层，level_left是每一层的最左结点
 样例
 
 Example 1:

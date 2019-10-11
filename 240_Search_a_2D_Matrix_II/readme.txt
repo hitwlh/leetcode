@@ -14,10 +14,8 @@ Integers in each column are sorted in ascending from top to bottom.
 解决方案
 
 solution1.cpp
-第一种方法是二叉搜索。先在matrix[0]里横向二叉搜索，找到等于target或第一个小于mid的，然后对所有小于mid的，纵向二叉搜索
-one-time-attention
-if(left >= matrix[0].size() || matrix[0][left] > target) left--;
-最坏时间复杂度是O(logm*n)
+第一种方法是二分搜索。先在matrix[0]里横向二分搜索，找到等于target或第一个小于target的，然后对所有起点小于target的列，纵向二分搜索
+时间复杂度是m*O(logn)
 
 solution2.cpp
 以右上角为搜索起点。如果当前的点等于target，返回true

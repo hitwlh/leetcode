@@ -9,8 +9,8 @@ Given a string S, you are allowed to convert it to a palindrome by adding charac
 这题题意理解之后，最快想到的肯定是暴力的解法。
 
 solution1.cpp
-暴力解法。input是s，假如需要在左边添加t，则t+s是回文串
-说明s.substr(s.length() - t.length())是回文串，要令t最小，就是要找到s里最大的i，使得s.substr(i)是回文的
+暴力解法。input是s，假如需要在左边添加t，令t+s是回文串
+说明s.substr(s.length() - t.length())是回文串。要使t最小，就是要找到s里最大的i，使得s.substr(i)是回文的
 这样的串，显然最右侧的字符==s[0]，因此从有往左找==s[0]的字符s[j]，找到的话，再看s.substr(j+1)是不是回文的，如果是，那直接就得到结果了，把j右侧的串reverse然后添加到s左侧，就是结果了。
 
 solution2.cpp

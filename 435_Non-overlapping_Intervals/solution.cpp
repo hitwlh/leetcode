@@ -11,25 +11,20 @@ bool compare(Interval a, Interval b){
     if(a.start == b.start) return a.end < b.end;
     return a.start < b.start;
 }
-bool mye(Interval a, Interval b){
-    return a.start == b.start;
-}
 class Solution {
 public:
     int eraseOverlapIntervals(vector<Interval>& intervals) {
         if(intervals.empty()) return 0;
         sort(intervals.begin(), intervals.end(), compare);
-        auto it = unique(intervals.begin(), intervals.end(), mye);
-        int old_size = intervals.size();
-        intervals.resize(distance(intervals.begin(),it));
-        int ret = old_size - intervals.size();
-        int next_end = intervals[0].end;
-        for(int i = 1; i < intervals.size(); i++){
-            if(intervals[i].start < next_end){
+        int i = 1, ret = 0, end = intervals[0].end;
+        while(i < intervals.size()){
+            if(intervals[i].start < end){
+                end = min(end, intervals[i].end);
                 ret++;
-                next_end = min(intervals[i].end, next_end);
-            }else
-                next_end = max(intervals[i].end, next_end);
+            }else{
+                end = intervals[i].end;
+            }
+            i++;
         }
         return ret;
     }

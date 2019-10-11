@@ -12,10 +12,9 @@ If n is the length of array, assume the following constraints are satisfied:
 
 
 
-
+翻译：将一个数组切割为m个子数组，令所有子数组和的最大值最小，求这个最小的最大值是多少。
 
 解决方案
-翻译：将一个数组分为m个子数组，令所有子数组和的最大值最小，求这个最小的最大值是多少。
 
 solution1.cpp 很难想到，但是很好写。
 显然，分为n份是最大值就是max(每个元素都是一个子数组)，分为1份时最大值是数组和sum

@@ -6,6 +6,9 @@ The gray code is a binary numeral system where two successive values differ in o
 
 Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
 
+
+格雷码是一种循环二进制单位距离码，主要特点是两个相邻数的代码只有一位二进制数不同的编码
+
 解决方案
 
 

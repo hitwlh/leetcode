@@ -8,7 +8,7 @@ Note:
 A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
 
 解决方案
-这题很容易想到用中根遍历，找到次序不对的两个数，用place1、place2两个指针指向需要交换的位置，中跟遍历找到这两个位置就ok
+这题很容易想到用中根遍历，找到次序不对的两个数，用place1、place2两个指针指向需要交换的位置，中根遍历找到这两个位置就ok
 有性质：a[place1]>a[place1+1]、a[place2-1]>a[place2]
 
 

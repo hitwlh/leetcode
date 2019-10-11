@@ -9,7 +9,7 @@ Now, instead outputting board configurations, return the total number of distinc
 
 
 解决方案
-非常非常容易，在理解了51题的基础上，修改几行返回的代码就是了。
+非常非常容易，在理解了51题的基础上，修改返回值就是了。
 
 样例
 

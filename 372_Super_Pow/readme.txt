@@ -7,7 +7,7 @@ Your task is to calculate ab mod 1337 where a is a positive integer and b is an 
 
 
 解决方案
-题目翻译：求a^b%1337
+题目翻译：求(a^b)%1337
 参考
 http://www.doc88.com/p-5836182437827.html
 http://www.infocool.net/kb/Other/201611/217955.html

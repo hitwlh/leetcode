@@ -10,7 +10,7 @@
 class Solution {
 public:
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
-        std::queue<TreeNode *> myqueue;
+        queue<TreeNode *> myqueue;
         vector<vector<int>> ret;
         myqueue.push(root);
         myqueue.push(NULL);
@@ -19,18 +19,16 @@ public:
             TreeNode* p = myqueue.front();
             myqueue.pop();
             while(p){
-            auto it = in.begin();
-            it = in.insert(it, p->val);
-            if(p->right)
-                myqueue.push(p->right);
-            if(p->left)
-                myqueue.push(p->left);
-            p = myqueue.front();
-            myqueue.pop();
+                in.push_back(p->val);
+                if(p->left) myqueue.push(p->left);
+                if(p->right) myqueue.push(p->right);
+                p = myqueue.front();
+                myqueue.pop();
             }
-            ret.insert(ret.begin(), in);
+            ret.push_back(in);
             myqueue.push(NULL);
         }
+        reverse(ret.begin(), ret.end());
         return ret;
     }
 };

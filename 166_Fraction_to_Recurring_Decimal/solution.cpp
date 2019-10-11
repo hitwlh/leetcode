@@ -9,23 +9,21 @@ public:
             return (flag ? "" : "-") + to_string(N/D);
         }
         map<long, int> mymap;//mymap[numerator] = index
-        string ret = to_string(N/D)+".";
+        string ret = (flag ? "" : "-") + to_string(N/D) + ".";
         int now = ret.length();
-        long i_N = (N - N / D * D) * 10;
+        long i_N = (N - N / D * D) * 10;//*10是为了借位
         while(mymap.find(i_N) == mymap.end()){
             if(i_N % D == 0){
                 ret += to_string(i_N / D);
-                if(!flag) ret.insert(ret.begin(), '-');
                 return ret;
             }
             mymap[i_N] = now;
             ret += to_string(i_N / D);
-            now = ret.length();
+            now++;
             i_N = (i_N - i_N / D * D) * 10;
         }
         ret.insert(ret.begin() + mymap[i_N], '(');
         ret += ")";
-        if(!flag) ret.insert(ret.begin(), '-');
         return ret;
     }
 };

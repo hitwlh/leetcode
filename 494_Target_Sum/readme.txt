@@ -21,15 +21,14 @@ Your output answer is guaranteed to be fitted in a 32-bit integer.
 http://tianshilei.me/2017/02/10/leetcode494/
 http://blog.csdn.net/hit0803107/article/details/54894227
 
-给序列里面的每个元素分配一个符号，使得最后的和等于目标值，那实际上不就变成我们从给定序列中找两个子集 P 和 N，使得 sum(P) - sum(N) = S （集合P里的元素分配+， 集合N里的元素分配-）且 P + N = nums 了吗？化简一点就是我们需要找到一个集合 P，使得 sum(P) = S - sum(nums - P)。那我们是不是每次需要求出 sum(P) 和 sum(nums - P) 呢？其实不然，我们考虑化简 sum(P) - sum(N) = S：
+给序列里面的每个元素分配一个符号，使得最后的和等于目标值，那实际上不就变成我们从给定序列中找两个子集 P 和 N，使得 sum(P) - sum(N) = S （集合P里的元素分配+， 集合N里的元素分配-）且 {P} + {N} = {nums} 了吗？化简一点就是我们需要找到一个集合 P，使得 sum(P) = S - sum(nums - P)。那我们是不是每次需要求出 sum(P) 和 sum(nums - P) 呢？其实不然，我们考虑化简 sum(P) - sum(N) = S：
 sum(P) - sum(N) = S
 sum(P) + sum(N) + sum(P) - sum(N) = S + sum(P) + sum(N)
 2 * sum(P) = S + sum(nums)
 sum(P) = (S + sum(nums)) / 2
-也就是说，我们只需要找到一个集合 P，使得 sum(P) 等于 (S + sum(nums)) / 2 即可
-S + sum(nums)是常数
+也就是说，我们只需要找到一个集合 P，使得 sum(P) 等于 (S + sum(nums)) / 2 即可。其中，S + sum(nums)是常数
 
-设target =  (S + sum(nums)) / 2
+设target = (S + sum(nums)) / 2
 定义dp[0...target]数组
 dp[i]表示和为i的集合有多少个
 for(int i = target; i >= n; i--)

@@ -12,6 +12,7 @@ Note:
 The order of returned grid coordinates does not matter.
 Both m and n are less than 150.
 
+给了我们一个二维数组，说是数组的左边和上边是太平洋，右边和下边是大西洋，假设水能从高处向低处流，问我们所有能流向两大洋的点的集合。
 
 解决方案
 这题的思路比较清晰，就是先以左、上为起点作广搜找到能到达的点

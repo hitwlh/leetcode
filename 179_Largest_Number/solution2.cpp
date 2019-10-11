@@ -15,9 +15,12 @@ public:
             ret[i] = to_string(nums[i]);
         sort(ret.begin(), ret.end(), comp);
         string r;
-        for(auto i: ret) r += i;
-        while(r.size()>1 && r[0] == '0')
-            r.erase(r.begin());
-        return r;
+        for(auto i: ret)
+            r += i;
+        int start = 0;
+        while(start < r.length() and r[start] == '0')
+            start++;
+        if(start >= r.length()) return "0";
+        return r.substr(start);
     }
 };

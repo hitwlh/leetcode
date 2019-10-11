@@ -7,7 +7,6 @@ public:
         int left = 1, right = nums.size(), mid;
         while(left > 0 && left < right){
             mid = left + (right - left) / 2;
-            //cout << "valid(" << mid << "): " <<  valid(s, nums, mid) << endl;
             if(valid(s, nums, mid)) right = mid;
             else left = mid + 1;
         }

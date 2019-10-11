@@ -8,7 +8,7 @@ You may assume that the intervals were initially sorted according to their start
 解决方案
 这题其实并不难想。首先判断区间段是否空，
 如果空，直接插入，然后返回
-如果不用，从头到尾看要添加的内容是否和已有的区间有重叠
+如果不空，从头到尾看要添加的内容是否和已有的区间有重叠
 1. 如果有，那就和那个区间合并，然后从头到尾做区间合并
 2. 如果没有，那就从头到尾找需要插入的位置
 

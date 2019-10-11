@@ -13,7 +13,7 @@ You are given an API bool isBadVersion(version) which will return whether versio
 
 
 显然是二分，我的做法在solution1.cpp，网上的做法是solution2.cpp，网上的写得很好
-
+注意这里求中点必须用left+(right-left)/2 ；(left+right)/2会溢出
 样例
 
 

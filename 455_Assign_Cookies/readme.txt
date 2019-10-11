@@ -8,7 +8,7 @@ Note:
 You may assume the greed factor is always positive. 
 You cannot assign more than one cookie to one child.
 
-
+给了我们一堆cookie，每个cookie的大小不同，还有一堆小朋友，每个小朋友的胃口也不同的，问我们当前的cookie最多能满足几个小朋友。
 
 解决方案
 先sort一下，然后用贪心算法，先为最容易满足的孩子分配蛋糕，并且为他分配最小的蛋糕

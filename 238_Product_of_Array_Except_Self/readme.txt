@@ -8,7 +8,7 @@ Solve it without division and in O(n).
 Follow up:
 Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)
 
-
+给定我们一个数组，让我们返回一个新数组，对于每一个位置上的数是其他位置上数的乘积，并且限定了时间复杂度O(n)，并且不让我们用除法
 
 解决方案
 要计算所有连乘，但output[i]里存储的是连乘时没乘自己的结果。

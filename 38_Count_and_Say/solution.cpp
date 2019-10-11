@@ -7,24 +7,18 @@ public:
         return res;
     }
     string read(string s){
-        ostringstream stream;
-        string tmp;
         int index = 0, i = 1, leng = 1;
+        string tmp;
         while(i<s.length()){
             if(s[i] == s[i-1])
                 leng++;
             else{
-                stream.str("");
-                stream << leng;
-                tmp = tmp + stream.str() + s[i-1];
+                tmp = tmp + to_string(leng) + s[i-1];
                 leng = 1;
             }
             i++;
         }
-        stream.str("");
-        stream << leng;
-        tmp = tmp + stream.str();
-        tmp = tmp + s[i-1];
+        tmp = tmp + to_string(leng) + s[i-1];
         return tmp;
     }
 };

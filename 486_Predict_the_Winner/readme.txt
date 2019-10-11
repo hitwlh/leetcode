@@ -14,7 +14,7 @@ Any scores in the given array are non-negative integers and will not exceed 10,0
 If the scores of both players are equal, then player 1 is still the winner.
 
 
-
+有一个数组，两个玩家轮流取数，说明了只能从开头或结尾取，问我们第一个玩家能赢吗。
 
 
 解决方案

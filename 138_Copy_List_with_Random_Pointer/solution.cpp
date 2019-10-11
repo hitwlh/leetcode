@@ -23,7 +23,7 @@ public:
         p = head;
         while(p){
             RandomListNode *q = p->next->next;
-            if(p->next->next) p->next->next = p->next->next->next;
+            if(p->next->next) p->next->next = q->next;
             p->next = q;
             p = q;
         }

@@ -3,9 +3,7 @@ public:
     int minDistance(string word1, string word2) {
         if(word1=="") return word2.length();
         if(word2=="") return word1.length();
-        vector<int> tmp;
-        tmp.assign(word2.length()+1, 0);
-        len.assign(word1.length()+1, tmp);
+        len.assign(word1.length()+1, vector<int>(word2.length()+1, 0));
         len[0][0] = 0;
         for(int i = 1; i < len[0].size(); i++) len[0][i] = i;
         for(int i = 1; i < len.size(); i++) len[i][0] = i;

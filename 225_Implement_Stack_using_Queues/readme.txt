@@ -10,6 +10,7 @@ solution1.cpp里存储的是一个队列，push: O(1)，pop: O(n)，top: O(n)的
 一个队列的写法要注意pop的时候，如何识别最后一个元素，因为一旦pop queue一个元素，queue的size也短暂地-1了，会导致错误
 
 solution2.cpp里存储的是2个队列，push: O(n)，pop: O(1)，top: O(1)的解法，也可以写成1个队列
+solution3和solution2.cpp一样，只是将2个队列修改成了1个
 
 样例
 

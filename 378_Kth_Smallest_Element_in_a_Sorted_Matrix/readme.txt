@@ -47,6 +47,9 @@ solution2
 时间复杂度
 查找一行需要log(n) ，有n行所以nlog(n)，最坏下需要查找log(X)次（X= int最大值的时候logX仅仅才为32），X为最大最小数差值。  所以总复杂度为O(nlogn *  logX)
 
+
+lower_bound: return iterator to upper bound
+Returns an iterator pointing to the first element in the range [first,last) which compares greater than val.
 后来我自己写了lower_bound的方法。lower_bound不简洁，最后会有2个备选答案L/R，且L+1==R，需要跳出循环后判断哪一个成立。
 
 

@@ -11,7 +11,7 @@ class Solution {
 public:
     int diameterOfBinaryTree(TreeNode* root) {
         dfs(root);
-        return MAX>0?(MAX-1):0;
+        return MAX > 0 ? (MAX-1):0;
     }
 private:
     int MAX = INT_MIN;

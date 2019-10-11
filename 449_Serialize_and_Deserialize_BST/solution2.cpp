@@ -15,9 +15,7 @@ public:
         if(!root) return "";    
         string left = serialize(root->left);
         string right = serialize(root->right);
-        stringstream ss;
-        ss << root->val;
-        string str = ss.str();
+        string str = to_string(root->val);
         return str+ " " + left + right;
     }
 
@@ -38,10 +36,8 @@ public:
             if(count > n) break;
         }
         for(i--; i >= 0 && data[i] != ' '; i--);
-        TreeNode *left = deserialize(data.substr(place1+1, i-place1));
-        TreeNode *right = deserialize(data.substr(i+1));
-        Troot->left = left;
-        Troot->right = right;
+        Troot->left = deserialize(data.substr(place1+1, i-place1));
+        Troot->right = deserialize(data.substr(i+1));
         return Troot;
     }
 };

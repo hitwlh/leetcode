@@ -8,6 +8,9 @@ Given an array of integers and an integer k, you need to find the number of uniq
 找绝对值之差是k的pair，并且不能重复。
 很简单，先sort一下就是了
 
+solution2.cpp
+用unordered_map O(n)时间 O(n)空间
+
 样例
 Example 1:
 Input: [3, 1, 4, 1, 5], k = 2

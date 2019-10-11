@@ -8,7 +8,7 @@ public:
         dp[0] = true;
         for(int i = 0; i < nums.size(); i++){
             for(int j = target; j >= nums[i]; j--)
-                dp[j] = dp[j]||dp[j-nums[i]];
+                dp[j] = dp[j] or dp[j-nums[i]];
         }
         return dp.back();
     }

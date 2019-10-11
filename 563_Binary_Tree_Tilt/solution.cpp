@@ -22,13 +22,13 @@ private:
         if(!root->left && !root->right){
             root->val = 0;
         }else if(!root->left && root->right){
-            root->val = max(root->right->val, -root->right->val);
+            root->val = abs(root->right->val);
             cal_tile(root->right);
         }else if(root->left && !root->right){
-            root->val = max(root->left->val, -root->left->val);
+            root->val = abs(root->left->val);
             cal_tile(root->left);
         }else{
-            root->val = max(root->left->val - root->right->val, root->right->val - root->left->val);
+            root->val = abs(root->left->val - root->right->val);
             cal_tile(root->right);
             cal_tile(root->left);
         }
@@ -41,9 +41,7 @@ private:
     }
     int cal_sum(TreeNode* root){
         if(!root) return 0;
-        int left = cal_sum(root->left);
-        int right = cal_sum(root->right);
-        root->val = root->val + left + right;
+        root->val += cal_sum(root->left) + cal_sum(root->right);
         return root->val;
     }
 };

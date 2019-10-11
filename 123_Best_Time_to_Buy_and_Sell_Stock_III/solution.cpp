@@ -9,20 +9,18 @@ public:
             MAX = max(MAX, prices[i] - MIN);
             left.push_back(MAX);
         }
-        right.push_back(0);
+        right.assign(left.size(), 0);
         MIN = 0, MAX = prices[prices.size()-1];
         for(int i = prices.size() - 2; i >= 0; i--){
             MAX = max(MAX, prices[i+1]);
             MIN = max(MIN, MAX - prices[i]);
-            right.push_back(MIN);
+            right[i] = MIN;
         }
         int ret = 0;
-        for(int i = 0; i < prices.size()-1; i++){
-            int tmp = left[i] + right[prices.size()-1-i];
-            if(tmp > ret) ret = tmp;
-        }
+        for(int i = 0; i < prices.size()-1; i++)
+            ret = max(ret, left[i] + right[i]);
         return ret;
     }
 private:
-    vector<int> left, right, truth_right;
+    vector<int> left, right;
 };

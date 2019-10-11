@@ -17,7 +17,7 @@ Given a collection of numbers that might contain duplicates, return all possible
 1. 先对vector sort一遍，确保vector中重复的元素连续出现。
 2. 在递归的时候，加上条件if(next == i || nums[next-1] != nums[next])。因为如果有一连串相等的，那就不需要再将相等的交换到前头。
 
-
+//需要注意的是，不能只使用swap，因为如果是swap的话，那就没有保证递归调用部分数组的有序性，因此必须用insert到头部的方法
 
 
 

@@ -32,6 +32,18 @@ one-time-attention
 因此
 不能每次找degree为1的(可能最后应该找degree为0的)！！！因此访问过的结点的degree不能设为0，而应设为-1
 
+
+
+solution3.cpp
+可以证明：最长路可能有很多条，但是所有最长路的中点，都是相同的。
+因此只需要做4次bfs
+第1次bfs：随机挑一个起点，走到最远的点startindex,
+第2次bfs：startindex为起点，走到最远的点endindex,记录长度length
+第3次bfs：startindex为起点，走(length+1) / 2步，记录中点(注意中点可能是1个，也可能是2个)
+第4次bfs：endindex为起点，走(length+1) / 2步，记录中点(注意中点可能是1个，也可能是2个)
+求中点集合的交集，即可。 
+
+
 样例
 
 Example 1:

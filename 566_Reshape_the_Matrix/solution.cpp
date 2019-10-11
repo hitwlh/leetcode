@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> matrixReshape(vector<vector<int>>& nums, int r, int c) {
-        int size1 = nums.size(), size2 = 0;
+        int size1 = nums.size(), size2;
         if(size1) size2 = nums[0].size();
         if(size1 * size2 != r * c) return nums;
         vector<vector<int>> ret(r,vector<int> (c,0));

@@ -6,6 +6,8 @@ Given an array of size n, find the majority element. The majority element is the
 You may assume that the array is non-empty and the majority element always exist in the array.
 
 解决方案
+是道求众数的问题
+每找出两个不同的element，就成对删除
 从头到尾遍历，统计到目前为止出现次数大于50%的，如果不大于，则将新的作为备选result
 
 样例

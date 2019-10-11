@@ -42,11 +42,6 @@ dfs代码比较简洁，逻辑也比较清晰。
 
 
 solution2.cpp是bfs解法
-bfs的解法就更难明白儿子指针了
-核心在于要有两个map
-一个map是map<UndirectedGraphNode *, bool> visit;，判断一个node是否处理过
-另一个map是map<UndirectedGraphNode *, UndirectedGraphNode *> uumap;从老图的结点映射到新图的结点
-
 
 
 

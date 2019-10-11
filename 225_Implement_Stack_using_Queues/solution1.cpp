@@ -12,24 +12,25 @@ public:
     
     /** Removes the element on top of the stack and returns that element. */
     int pop() {
-        int size = myque.size();
-        for(int i = 0; i < size; i++){
+        for(int i = 0; i + 1 < myque.size(); i++){
             int tmp = myque.front();
             myque.pop();
-            if(i != size-1)
-                myque.push(tmp);
-            else return tmp;
+            myque.push(tmp);
         }
+        int tmp = myque.front();
+        myque.pop();
+        return tmp;
     }
     
     /** Get the top element. */
     int top() {
+        int tmp;
         for(int i = 0; i < myque.size(); i++){
-            int tmp = myque.front();
+            tmp = myque.front();
             myque.pop();
             myque.push(tmp);
-            if(i == myque.size()-1) return tmp;
         }
+        return tmp;
     }
     
     /** Returns whether the stack is empty. */

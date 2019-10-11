@@ -9,6 +9,8 @@ What if the given tree could be any binary tree? Would your previous solution st
 在116题solution2的基础上，增加一个avaliable_next函数，也就是说root->right->next应该是下一个有左或右儿子的结点的左或右儿子，而不是简单
 if(root->next) root->right->next = root->next->left;
 
+在116题solution3的基础上，增加任意类型二叉树的判断方法。
+
 样例
 
 

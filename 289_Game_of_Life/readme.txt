@@ -17,10 +17,9 @@ Could you solve it in-place? Remember that the board needs to be updated at the 
 In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause problems when the active area encroaches the border of the array. How would you address these problems?
 
 
-
 解决方案
 生命游戏中，对于任意细胞，规则如下：
-每个细胞有两种状态-存活或死亡，每个细胞与以自身为中心的周围八格细胞产生互动。（如图，黑色为存活，白色为死亡）
+每个细胞有两种状态-存活或死亡，每个细胞与以自身为中心的周围八个细胞产生互动。（如图，黑色为存活，白色为死亡）
 当前细胞为存活状态时，当周围低于2个（不包含2个）存活细胞时， 该细胞变成死亡状态。（模拟生命数量稀少）
 当前细胞为存活状态时，当周围有2个或3个存活细胞时， 该细胞保持原样。
 当前细胞为存活状态时，当周围有3个以上的存活细胞时，该细胞变成死亡状态。（模拟生命数量过多）

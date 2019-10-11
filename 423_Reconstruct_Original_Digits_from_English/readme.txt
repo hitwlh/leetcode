@@ -9,7 +9,7 @@ Input contains only lowercase English letters.
 Input is guaranteed to be valid and can be transformed to its original digits. That means invalid inputs such as "abc" or "zerone" are not permitted.
 Input length is less than 50,000.
 
-
+给了我们一串英文字符串，是由表示数字的英文单词组成的，不过字符顺序是打乱的，让我们重建出数字。
 
 解决方案
 zero

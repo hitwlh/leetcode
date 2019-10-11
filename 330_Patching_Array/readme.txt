@@ -4,7 +4,7 @@
 题目大意
 Given a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required.
 
-
+这道题给我们一个有序的正数数组nums，又给了我们一个正整数n，问我们最少需要给nums加几个数字，使其能组成[1,n]之间的所有数字
 
 解决方案
 这题思路不难，代码也简单。就是从左侧往右侧遍历，假如通过nums[0...i]，并且添加数字过后，可以sum的区间是[1, could]，

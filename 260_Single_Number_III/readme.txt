@@ -10,7 +10,7 @@ Given an array of numbers nums, in which exactly two elements appear only once a
 如果有2个出现1次， 那对整个数组异或运算的结果就是这两个的异或结果
 这个异或结果为1的位，就是这两个数字不相等的位，根据这个位将原数组划分为2份，就将这两个数字分开了，然后对两份分别做Single Number
 
-
+solution2.cpp 换了个方法找唯一的1
 样例
 
 For example:

@@ -21,7 +21,7 @@ private:
             //注意这里非常重要！！！
             int target = targets - nums[k];
             int i= k+1, j = nums.size()-1;
-            while( i < j){
+            while(i < j){
                 if(nums[i] + nums[j] == target)
                     return true;
                 else if(nums[i] + nums[j] < target) i++;

@@ -19,6 +19,8 @@ Note: Time complexity should be O(height of tree).
 3. 最右结点的left设置为root的left
 4. 返回最右结点
 
+非递归的解法，在solution1.cpp。有直接赋值和纯修改指针两种方案，其中，纯直接赋值，比较简单。
+
 样例
 Example:
 

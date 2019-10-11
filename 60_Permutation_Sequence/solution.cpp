@@ -36,5 +36,4 @@ private:
             fac_array[i] = ret;
         }
     }
-    
 };

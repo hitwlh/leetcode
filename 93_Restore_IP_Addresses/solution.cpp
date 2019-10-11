@@ -1,40 +1,37 @@
 class Solution {
 public:
     vector<string> restoreIpAddresses(string s) {
-        my_s = s;
-        for(int i = 0; i < my_s.length(); i++){
-            index[0] = i;
-            if(isvalid(my_s.substr(0, i+1)))
-                dfs(i+1, 1);
-            else break;
-        }
+        dfs(vector<string>(), s);
         return ret;
     }
 private:
-    string my_s;
-    int index[4];
     vector<string> ret;
-    void dfs(int start_index, int now) {
-        for(int i = start_index; i < my_s.length(); i++){
-            if(isvalid(my_s.substr(start_index, i - start_index + 1))){
-                index[now] = i;
-                if(now < 3)
-                    dfs(i+1, now+1);
-                else{
-                    if(i + 1 == my_s.length()){
-                        string res = my_s;
-                        for(int i = 0; i < 3 ; i++)
-                            res = res.substr(0, index[i] + 1 + i) + '.' + res.substr(index[i] + 1 + i);
-                        ret.push_back(res);
-                    }
-                }
-            }
-            else break;
+    void dfs(vector<string> path, string s){
+        if(s == ""){
+            if(path.size() == 4) ret.push_back(path[0] + "." + path[1] + "." + path[2] + "." + path[3]);
+            return ;
         }
+        if(path.size() == 4) return;
+        if(s.length() >= 1 and valid(s.substr(0, 1))){
+            path.push_back(s.substr(0, 1));
+            dfs(path, s.substr(1));
+            path.pop_back();
+        }
+        if(s.length() >= 2 and valid(s.substr(0, 2))){
+            path.push_back(s.substr(0, 2));
+            dfs(path, s.substr(2));
+            path.pop_back();
+        }
+        if(s.length() >= 3 and valid(s.substr(0, 3))){
+            path.push_back(s.substr(0, 3));
+            dfs(path, s.substr(3));
+            path.pop_back();
+        }
+        return ;
     }
-    bool isvalid(string s){
-        if(s.length()>1 && s[0] == '0') return false;
-        long n = atol(s.c_str());
-        return n >= 0 && n <= 255;
+    bool valid(string tmp){
+        if(tmp == "0") return true;
+        if(tmp[0] == '0') return false;
+        return atoi(tmp.c_str()) > 0 and atoi(tmp.c_str()) <= 255;
     }
 };

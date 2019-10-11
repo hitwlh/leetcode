@@ -11,7 +11,7 @@ You may assume the interval's end point is always bigger than its start point.
 You may assume none of these intervals have the same start point.
 
 
-
+让我们找每个区间的最近右区间，要保证右区间的start要大于等于当前区间的end
 
 
 

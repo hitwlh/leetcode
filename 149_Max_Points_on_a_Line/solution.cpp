@@ -10,28 +10,38 @@
 class Solution {
 public:
     int maxPoints(vector<Point>& points) {
-        if(points.empty()) return 0;
         int ret = 0;
-        unordered_map<double, int> mymap;//double是斜率，int是这个斜率出现过多少次
-        for(int i = 0; i < points.size(); i++){
-            mymap.clear();
-            int tmp = 0;//tmp是斜率为无穷大出现过多少次
-            int self = 0;//self是同样点重合多少次
-            for(int j = 0; j < points.size(); j++){
-                if(points[j].y == points[i].y){
-                    if(points[j].x != points[i].x)
-                        tmp++;
-                    else
-                        self++;
-                    continue;
-                }
-                double a = points[j].x - points[i].x, b = points[j].y - points[i].y;
-                mymap[a/b]++;
-            }
-            for(auto i: mymap) ret = max(ret, i.second+self);
-            ret = max(ret, tmp+self);
-        }
+        for(auto i: points)
+            ret = max(inpoints(points, i), ret);
         return ret;
     }
-
+private:
+    int inpoints(vector<Point>& points, Point vertex){
+        unordered_map<string, int> map;
+        int same = 0, tmp1 = 0, tmp2 = 0;
+        for(auto point: points){
+            if(point.x == vertex.x && point.y == vertex.y){
+                same++;
+                continue;
+            }
+            if(point.y == vertex.y) tmp1++;
+            if(point.x == vertex.x) tmp2++;
+            else{
+                int x = gcd(point.y - vertex.y, point.x - vertex.x);//必须有最大公约数，否则18/4!=9/2的情况会出现
+                map[to_string((point.y - vertex.y) / x) + "," + to_string((point.x - vertex.x) / x)]++;
+            }
+        }
+        int ret = 0;
+        for(auto i: map)
+            ret = max(ret, i.second);
+        return max(max(ret, tmp1), tmp2) + same;
+    }
+    int gcd(int x, int y){
+        while(x % y != 0){
+            int t = x;
+            x = y;
+            y = t % x;
+        }
+        return y;
+    }
 };

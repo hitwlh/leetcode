@@ -9,12 +9,12 @@ public:
         int left_index, right_index;
         int length = s.length();
         for(int i = 0; i < words[0].size(); i++){
-            m1 = m2;
+            m1 = m2;//m1[s] = j,代表字符串s还需要匹配j次
             left_index = i;
             right_index = i;
             while(right_index <= length - m ){
                 if(left_index <= right_index){
-                    if( (right_index - left_index) / m == n){
+                    if((right_index - left_index) / m == n){
                         res.push_back(left_index);
                         m1[s.substr(left_index, m)]++;
                         left_index += m;
@@ -33,11 +33,10 @@ public:
                 else
                     right_index = left_index;
             }
-                if( (right_index - left_index) / m == n){
-                        res.push_back(left_index);
-                        m1[s.substr(left_index, m)]++;
-                }
-            
+            if((right_index - left_index) / m == n){
+                res.push_back(left_index);
+                m1[s.substr(left_index, m)]++;
+            }
         }
         return res;
     }

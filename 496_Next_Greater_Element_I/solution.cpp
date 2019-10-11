@@ -4,7 +4,8 @@ public:
         map<int, int> mymap;
         stack<int> sta;
         for(int i = nums.size() - 1; i>= 0; i--){
-            while(!sta.empty() && sta.top() <= nums[i]) sta.pop();
+            while(!sta.empty() && sta.top() <= nums[i])
+                sta.pop();
             if(sta.empty())
                 mymap[nums[i]] = -1;
             else

@@ -1,22 +1,20 @@
-class Solution {  
-public:  
-    string addBinary(string a, string b) {  
-        // Start typing your C/C++ solution below  
-        // DO NOT write int main() function  
-        string sum = "";  
-        int alen = a.length() - 1;  
-        int blen = b.length() - 1;  
-        int carry = 0;  
-        while (alen >= 0 || blen >= 0 || carry > 0) {  
-            int v = carry;  
-            if (alen >= 0) v += a[alen] - '0';  
-            if (blen >= 0) v += b[blen] - '0';  
-  
-            carry = v / 2;  
-            sum = char('0' + (v%2)) + sum;   
-            alen--;  
-            blen--;  
-        }  
-        return sum;  
-    }  
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int carry = 0, i = a.size()-1, j = b.size()-1;
+        string ret;
+        while(i >= 0 || j >= 0 || carry){
+            int sum = carry;
+            if(i >= 0) sum += a[i] - '0';
+            if(j >= 0) sum += b[j] - '0';
+            if(sum >= 2){
+                carry = 1;
+                sum -= 2;
+            }else
+                carry = 0;
+            ret = to_string(sum) + ret;
+            i--, j--;
+        }
+        return ret;
+    }
 };

@@ -1,6 +1,6 @@
-bool comp(string a, string b){
+bool comp(const string &a, const string &b){
     if(a.length() != b.length()) return a.length() > b.length();
-    return a.compare(b) < 0;
+    return a < b;
     
 }
 class Solution {
@@ -13,7 +13,6 @@ public:
     }
 private:
     bool issub(string s, string t){
-        if(t.length() >= s.length()) return t==s;
         int j = 0;
         for(int i = 0; i < s.length() && j < t.length(); i++)
             if(s[i] == t[j]) j++;

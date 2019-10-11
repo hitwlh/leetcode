@@ -12,6 +12,8 @@ Return all such possible sentences.
 有个要注意的就是有可能没有解，但是会尝试太多次而导致空间爆炸
 因此先直接调用139. Word Break的函数判断是否有解，有的话再找解，没有就可以返回了。
 
+solution.cpp是 139 solutoin.cpp的进阶版本
+solution2.cpp是 139 solutoin2.cpp的进阶版本
 样例
 For example, given
 s = "catsanddog",

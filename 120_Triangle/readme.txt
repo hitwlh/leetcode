@@ -17,7 +17,7 @@ minPath[j]=min(minPath[j−1],minPath[j])+triangle[i][j]
 
 具体编码时可以从上往下也可以从下往上
 从下往上的话直接返回minPath[0][0]或minPath[0]就是了
-从上往下的话要返回最后一行的最大值
+从上往下的话要返回最后一行的最小值
 
 
 样例

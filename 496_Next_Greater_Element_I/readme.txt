@@ -11,6 +11,8 @@ All elements in nums1 and nums2 are unique.
 The length of both nums1 and nums2 would not exceed 1000.
 
 
+给了我们一个数组，又给了该数组的一个子集合，让我们求集合中每个数字在原数组中右边第一个较大的数字。
+
 解决方案
 
 其实这题根本不用关注findNums容器，只需要求一个大容器里，每个元素后面第一个比它大的元素是多大就行了。

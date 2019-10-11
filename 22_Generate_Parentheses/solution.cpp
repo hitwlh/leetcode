@@ -6,7 +6,7 @@ public:
     }
 private:
     vector<string> ret;
-    void my_gen(int left, int right, string s)
+    void my_gen(int left, int right, string s)//left代表可以画left个'(', right代表可以画left个')'
     {
         if(left > 0)
             my_gen(left - 1, right, s+'(');

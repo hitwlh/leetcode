@@ -13,7 +13,7 @@ Follow up:
 Can you do it in O(n) time?
 
 
-
+这道题给我了我们一个数组，让我们求最长摆动子序列
 
 解决方案
 这题就是贪心的方法做。
@@ -21,7 +21,9 @@ Can you do it in O(n) time?
 
 这题是参考了网上的思路才想明白的，还挺不容易想到的
 
-
+solution2.cpp
+参考http://www.cnblogs.com/grandyang/p/5697621.html
+其实只需要记录满足的数目有多少就ok，最后把它们“拼接”在一起，不需要考虑顺序
 
 
 样例

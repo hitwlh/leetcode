@@ -7,13 +7,13 @@ Given a list of non-negative numbers and a target integer k, write a function to
 Note:
 The length of the array won't exceed 10,000.
 You may assume the sum of all the numbers is in the range of a signed 32-bit integer.
-
+这道题给了我们一个数组和一个数字k，让我们求是否存在这样的一个连续的子数组，该子数组的数组之和可以整除k
 
 
 解决方案
 第一种方案非常好想，就是暴力穷举，枚举起点和长度，然后用一个sum数组，这种解法在solution.cpp
 one-time-attention
-要特别注意k是0怎么办，如果不处理这个情况，模k的时候会有除0错误。但是也不是k=0就直接返回false，这个也需要注意。
+要特别注意k是0怎么办，如果不处理这个情况，模k的时候会有除0错误。但是也不是k=0就直接返回false/true,而是需要找是否有和为0的子数组，这个也需要注意。
 
 第二种方案
 当处理到A[j]时，如果sum[j] % k = l, 前面如果出现过sum[i] % k = l， 那说明sum[i+1, ..., j]能%k，因此只需要保存前面出现过的余数就行了。

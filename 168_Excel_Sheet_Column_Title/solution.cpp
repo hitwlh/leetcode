@@ -6,9 +6,8 @@ public:
         char use;
         while(n){
             last = (n-1) % 26;
-            n -= 1;
-            n /= 26;
-            use = 'A' + last ;
+            n = (n-1) / 26;
+            use = 'A' + last;
             res =  use + res;
         }
         return res;

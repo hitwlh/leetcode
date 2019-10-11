@@ -7,7 +7,7 @@ public:
         int num0, num1;
         int count0 = 0;
         int count1 = 0;
-        for(int i=0;i<nums.size(); i++){
+        for(int i = 0; i < nums.size(); i++){
             if(num1 != nums[i] && count0 == 0){
             //注意这里要判断num1 != nums[i]
             //因为如果是进行到后面，抵消完所有num1，没抵消完num2，则下一个元素可能和nums相等

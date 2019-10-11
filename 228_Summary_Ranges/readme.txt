@@ -7,7 +7,7 @@ Given a sorted integer array without duplicates, return the summary of its range
 
 
 解决方案
-题目就是给一个严格递增，将其进行“压缩”，几乎毫无算法可言。
+题目就是给一个严格递增int类型数组，将其进行“压缩”，几乎毫无算法可言。
 
 易错点
 1. 要注意没有元素和只有1个元素的情况。

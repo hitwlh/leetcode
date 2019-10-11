@@ -4,6 +4,9 @@
 题目大意
 Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.
 
+
+这道题定义了一种爬行字符串，就是说假如把一个字符串当做一个二叉树的根，然后它的非空子字符串是它的子节点，然后交换某个子字符串的两个子节点，重新爬行回去形成一个新的字符串
+
 解决方案
 https://www.tianmaying.com/tutorial/LC87
 http://blog.csdn.net/sxingming/article/details/51824434
@@ -27,7 +30,7 @@ http://blog.csdn.net/sxingming/article/details/51824434
 scramble(l, i, j，表示“s1从位置i开始长度为l的子串”能否经由scramble操作变为“s2从位置j开始长度为l的子串”，而我们要求的答案就是scramble(n, 0, 0)
 然后动规填表
 显然这个的空间复杂度是O(N^3)，往表里填一个元素的时间复杂度是O(N)，总的时间复杂度是O(N^4)
-这个答案在solution1.cpp
+这个答案在solution2.cpp
 
 
 样例

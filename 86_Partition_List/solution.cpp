@@ -9,21 +9,18 @@
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode *p = NULL, *q = NULL, *pH = NULL, *qH = NULL;
+        ListNode *p = new ListNode(-1), *q = new ListNode(-1);
+        ListNode *pH = p, *qH = q;
         while(head){
-            if(head->val < x){
-                if(!p) p = head, pH = head;
-                else p->next = head, p = p->next;
-            }
-            else{
-                if(!q) q = head, qH = head;
-                else q->next = head, q = q->next;
-            }
+            if(head->val < x)
+                p->next = head, p = p->next;
+            else
+                q->next = head, q = q->next;
             head=head->next;
         }
-        if(!p) return qH;
-        p->next = qH;
-        if(q) q->next = NULL;
-        return pH;
+        if(!pH->next) return qH->next;
+        p->next = qH->next;
+        q->next = NULL;
+        return pH->next;
     }
 };

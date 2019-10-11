@@ -7,7 +7,7 @@ Sort a linked list using insertion sort.
 解决方案
 
 pair<ListNode*, ListNode*> insert(ListNode *left, ListNode *right, ListNode *insert)函数
-讲insert插入到[left, right]区间
+将insert插入到[left, right]区间
 问题在于这个函数必须返回一个区间，因为插入可能插在最前面，将left修改，也可能插入在最后，将right修改，因此直接返回这个区间
 
 one_time_attention:

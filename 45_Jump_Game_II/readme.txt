@@ -20,6 +20,10 @@ You can assume that you can always reach the last index.
 55. Jump Game的进阶版本
 就是要返回需要跳多少步。仍然是贪心，记录一下跳了多少步就好了
 
+solution2.cpp
+用place表示当前能跳到的最远位置
+如果place到了最后，就说明跳完了。
+
 样例
 
 

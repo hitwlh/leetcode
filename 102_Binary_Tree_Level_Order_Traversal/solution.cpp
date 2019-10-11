@@ -19,17 +19,13 @@ public:
             TreeNode* p = myqueue.front();
             myqueue.pop();
             while(p){
-            auto it = in.begin();
-            it = in.insert(it, p->val);
-            if(p->right)
-                myqueue.push(p->right);
-            if(p->left)
-                myqueue.push(p->left);
-            p = myqueue.front();
-            myqueue.pop();
+                in.push_back(p->val);
+                if(p->left) myqueue.push(p->left);
+                if(p->right) myqueue.push(p->right);
+                p = myqueue.front();
+                myqueue.pop();
             }
-            auto i_it = ret.end();
-            i_it = ret.insert(i_it, in);
+            ret.push_back(in);
             myqueue.push(NULL);
         }
         return ret;

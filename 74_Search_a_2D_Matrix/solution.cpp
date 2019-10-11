@@ -1,25 +1,22 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if(matrix.empty() || matrix[0].empty()) return false;
-        int left = 0, right = matrix.size() - 1, mid;
+        if(matrix.empty() or matrix[0].empty()) return false;
+        int m = matrix.size(), n = matrix[0].size();
+        int left = 0, right = m-1, column, mid;
         while(left <= right){
-            mid = (left + right) / 2;
-            if(matrix[mid][0] > target) right = mid-1;
-            else if(matrix[mid][matrix[mid].size()-1] < target) left = mid+1;
-            else return searchVector(matrix, mid, target);
+            mid = left + (right - left) / 2;
+            if(matrix[mid][0] > target) right = mid - 1;
+            else left = mid + 1;
         }
-        return false;
-    }
-private:
-    bool searchVector(vector<vector<int>>& matrix, int i, int target){
-        int first = 0, last = matrix[i].size()-1, mid;
-        while(first <= last){
-            mid = (first + last) / 2;
-            if(matrix[i][mid] == target) return true;
-            else if(matrix[i][mid] < target) first = mid+1;
-            else last = mid-1;
+        if(right < 0) return false;
+        column = right;
+        left = 0, right = n-1;
+        while(left <= right){
+            mid = left + (right - left) / 2;
+            if(matrix[column][mid] >= target) right = mid - 1;
+            else left = mid + 1;
         }
-        return false;
+        return right + 1 < n and matrix[column][right+1] == target;
     }
 };

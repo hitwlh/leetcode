@@ -1,28 +1,22 @@
 class Solution {
 public:
     int splitArray(vector<int>& nums, int m) {
-        int n = nums.size();
-        vector<int> sum(nums.size(), 0);
-        sum[0] = nums[0];
-        for(int i = 1; i < n; i++)
-            sum[i] = nums[i] + sum[i-1];
-        int R = sum[n-1], L = INT_MIN;
-        for(auto i: nums) L = max(L, i);
-        while(L < R){
-            int mid = L + (R - L) / 2;
-            int use = 0, sums = nums[0];
-            for(int i = 1; i < n; i++){
-                if(nums[i] + sums <= mid)
-                    sums += nums[i];
+        int MAX = INT_MIN;
+        long long sum = 0;
+        for(auto i: nums) MAX = max(MAX, i), sum += i;
+        long long L = MAX, R = sum;
+        while(L <= R){
+            long long sum = nums[0], mid = L+(R-L)/2, use = 1;
+            for(int i = 1; i < nums.size(); i++){
+                if(nums[i] + sum <= mid) sum += nums[i];
                 else{
-                    use ++;
-                    sums = nums[i];
+                    use++;
+                    sum = nums[i];
                 }
             }
-            use++;
-            if(use > m) L = mid + 1;
-            else R = mid;
+            if(use <= m) R = mid - 1;
+            else L = mid + 1;
         }
-        return L;
+        return R+1;
     }
 };

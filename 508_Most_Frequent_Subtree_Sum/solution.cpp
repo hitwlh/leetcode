@@ -11,28 +11,21 @@ class Solution {
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
         search(root);
-        while(!sta.empty()){
-            kk[sta.top()]++;
-            sta.pop();
-        }
-        int maxx = -1;
-        for(auto i: kk){
-            if(i.second >= maxx)    maxx = i.second;
-        }
-        for(auto i: kk){
-            if(i.second >= maxx)    ret.push_back(i.first);
-        }
+        int MAX = INT_MIN;
+        for(auto sum: sums)
+            MAX = max(MAX, sum.second);
+        for(auto sum: sums)
+            if(sum.second == MAX)
+                ret.push_back(sum.first);
         return ret;
     }
 private:
-    stack<int> sta;
-    map<int, int> kk;
     vector<int> ret;
+    unordered_map<int, int> sums;
     int search(TreeNode* root){
-        if(!root)
-            return 0;
-        int p = search(root->left) + search(root -> right) + root->val;
-        sta.push(p);
-        return p;
+        if(!root) return 0;
+        int sum = root->val + search(root->left) + search(root->right);
+        sums[sum]++;
+        return sum;
     }
 };

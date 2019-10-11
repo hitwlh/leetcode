@@ -21,8 +21,6 @@ From each cell, you can either move to four directions: left, right, up or down.
 
 
 
-
-
 样例
 Example 1:
 

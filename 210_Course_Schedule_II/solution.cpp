@@ -1,28 +1,30 @@
 class Solution {
 public:
     vector<int> findOrder(int numCourses, vector<pair<int, int>>& prerequisites) {
-        vector<int> indeg, ret;
-        indeg.assign(numCourses, 0);
-        vector<vector<int>> outdeg;
-        outdeg.assign(numCourses, {});
-        for(int i = 0; i < prerequisites.size(); i++){
-            indeg[prerequisites[i].first]++;
-            outdeg[prerequisites[i].second].push_back(prerequisites[i].first);
+        vector<int> in(numCourses, 0), ret;
+        vector<vector<int>> out(numCourses, vector<int>());
+        for(auto i: prerequisites){
+            in[i.first]++;
+            out[i.second].push_back(i.first);
         }
-        queue<int> que;
-        for(int i = 0; i < numCourses; i++)
-            if(!indeg[i])
-                que.push(i);
-        while(!que.empty()){
-            int top = que.front();
-            ret.push_back(top);
-            que.pop();
-            for(int i = 0; i < outdeg[top].size(); i++){
-                if(!(--indeg[outdeg[top][i]]))
-                    que.push(outdeg[top][i]);
+        for(int i= 0; i < in.size(); i++)
+            if(in[i] == 0){
+                myque.push(i);
+            }
+        while(!myque.empty()){
+            int front = myque.front();
+            myque.pop();
+            ret.push_back(front);
+            for(auto i: out[front]){
+                in[i]--;
+                if(in[i] == 0){
+                    myque.push(i);
+                }
             }
         }
         if(ret.size() < numCourses) return {};
         return ret;
     }
+private:
+    queue<int> myque;
 };

@@ -19,7 +19,7 @@ public:
             set.pop_back();
             mmp[val].erase(set.size());
         }else{
-            int index = *mmp[val].begin();
+            int index = *(mmp[val].begin());
             //swap(set[set.size()-1], set[index]);
             set[index] = set[set.size()-1];
             mmp[set[index]].erase(set.size()-1);

@@ -13,6 +13,8 @@ Note:
 Both strings' lengths will not exceed 100.
 Only letters from a ~ z will appear in input strings.
 
+如果两个字符串相等，那么一定没有非共同子序列，反之，如果两个字符串不等，那么较长的那个字符串就是最长非共同子序列
+
 
 解决方案
 只需要判断两字符串是否相等，如果相等就返回-1，不相等就返回较长的字符串长度！

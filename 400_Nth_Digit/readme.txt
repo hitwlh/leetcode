@@ -5,7 +5,7 @@
 Find the nth digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...
 Note:
 n is positive and will fit within the range of a 32-bit signed integer (n < 231).
-
+自然数序列看成一个长字符串，问我们第N位上的数字是什么
 
 
 
@@ -17,7 +17,7 @@ one-time-attention
 求数字是应该用n-1，因为如果n==flag，应该还在第一个数字上(比如n等于flag等于4时，应该是1000里找)，而非进入第二个数字(1001中找)。
 int number = (n-1) / flag + pow(10, flag-1);
 
-
+和233、60题一起看
 
 
 

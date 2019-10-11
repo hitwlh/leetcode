@@ -15,7 +15,8 @@ memset(flag[i], true, n*sizeof(bool));
 trips
 因为每次失败后都会将修改过的bool array还原，所以在主函数里只需要初始化bool一次，不需要每次调用前都将bool array全设置一次
 
-
+solution2.cpp
+第二次写得比较简洁。
 
 理解，这里对dfs和回溯产生了疑问，这两个是同样的吗？
 讨论帖： http://www.1point3acres.com/bbs/thread-137584-1-1.html

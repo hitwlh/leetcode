@@ -13,7 +13,7 @@ You may assume k is always valid, 1 ≤ k ≤ array's length.
 最基础的就是直接sort然后找第k大的，在solution.cpp。时间复杂度是O(nlogn)
 
 solution1.cpp
-用大小为k的大根堆，先把前k个元素入堆，建立好堆，然后往后遍历，某个元素如果比堆顶小，则把它入堆并弹出堆顶，最后返回堆顶就是了O(nlogk)
+用大小为k的大根堆，先把前k个元素入堆，建立好堆，然后往后遍历，某个元素如果比堆顶大，则把它入堆并弹出堆顶，最后返回堆顶就是了O(nlogk)
 
 solution2.cpp
 用quickselect，每次挑一个元素pivot，然后用sort colors的方法把原数组分为左、中、右。(左边的是小于pivot, 右边大于pivot， 中间等于pivot)。然后看k是否在中间部分，如果是就返回，如果不是则进入左右处理。

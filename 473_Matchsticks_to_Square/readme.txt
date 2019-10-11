@@ -10,10 +10,10 @@ Note:
 The length sum of the given matchsticks is in the range of 0 to 10^9.
 The length of the given matchstick array will not exceed 15.
 
-
+这道题让我们用数组中的数字来摆出一个正方形
 
 解决方案
-暴力搜索，一个tip是先从大到小sort一遍，这样如果选不出来，就会尽快知道(因为依赖于某条边界超出1/4*sum)
+暴力搜索，一个tip是先判断是否有超出的，这样如果选不出来，就会尽快知道(因为依赖于某条边界超出1/4*sum)
 
 样例
 Example 1:

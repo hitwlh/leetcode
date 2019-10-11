@@ -11,7 +11,7 @@ Note: Given n will be a positive integer.
 
 
 解决方案
-就是斐波那契数列，但是递归方式会超时，用非递归解法
+f(n) = f(n-1) + f(n-2) 就是斐波那契数列，但是递归方式会超时，用非递归解法
 
 样例
 

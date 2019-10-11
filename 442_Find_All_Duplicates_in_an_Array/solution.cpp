@@ -5,9 +5,7 @@ public:
         int val;
         for(int i = 0; i < nums.size(); i++){
             val = nums[i];
-            while(true){
-                //debug(nums);
-                if(i+1 == val || val < 0) break;
+            while(i+1 != val && val >= 0){
                 if(val == nums[val-1]){
                     ret.push_back(val);
                     nums[i] = -1;
@@ -18,11 +16,5 @@ public:
             }
         }
         return ret;
-    }
-private:
-    void debug(vector<int>& nums){
-        for(int i = 0; i < nums.size(); i++)
-            cout << nums[i] << " ";
-        cout << endl;
     }
 };

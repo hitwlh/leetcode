@@ -3,7 +3,7 @@
 
 题目大意
 Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10n.
-
+找一个范围内的各位上不相同的数字，比如123就是各位不相同的数字，而11,121,222就不是这样的数字。
 
 
 
@@ -30,6 +30,7 @@ used[i] = true;
 ...
 used[i] = false;
 代码solution1.cpp
+效率非常低下！
 
 
 样例

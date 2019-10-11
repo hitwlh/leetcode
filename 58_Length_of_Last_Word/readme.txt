@@ -6,7 +6,7 @@ Given a string s consists of upper/lower-case alphabets and empty space characte
 If the last word does not exist, return 0.
 
 解决方案
-常规，变量一次即可
+常规，自右往左遍历一次即可
 
 样例
 Given s = "Hello World",

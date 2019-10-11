@@ -18,7 +18,7 @@ bool isMatch(const char *s, const char *p)
 
 解决方案
 参考http://www.cnblogs.com/grandyang/p/4461713.html
-和 44 Wildcard Matching类似。不同点在于*的意义不同，在之前那道题中，*表示可以代替任意个数的字符，而这道题中的*表示之前那个字符可以有0个，1个或是多个，就是说，字符串a*b，可以表示b或是aaab，即a的个数任意。
+和 44 Wildcard Matching类似。不同点在于*的意义不同，在之前那道题中，*表示可以代替任意个任意字符，而这道题中的*表示之前那个字符可以有0个，1个或是多个，就是说，字符串a*b，可以表示b或是aaab，即a的个数任意。
 
 
 1. 暴力解法，solution.cpp

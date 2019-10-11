@@ -9,7 +9,7 @@ The length of num is less than 10002 and will be ≥ k.
 The given num does not contain any leading zero.
 
 
-
+将给定的数字去掉k位，要使得留下来的数字最小
 
 解决方案
 显然如果能把全部remove掉那就返回0就是了
@@ -35,16 +35,18 @@ solution1.cpp
 
 
 看了下网上的解法，只需要维持一个单调不递减的栈就行了
-如果不能切，返回。
+如果不能切除，返回。
 否则
 如果栈顶比当前的大，那就切掉栈顶，重复判断
 如果栈顶不比当前的大，当前的入栈
 solution2.cpp
 one-time-attention
-1. 如果移除结果左侧的0后length<k，返回"0"
+如果k不小于0，也就是说还需要切
+1. 如果移除结果左侧的0后length<k，返回"0"（也就是说把剩余的全部切掉）
 2. 要把右侧的k个数字切掉然后返回ret
 
-
+solution3.cpp
+最容易理解，应该维持一个从左到右递增的序列，如果有更小的数字，就把它左边比它大的给删掉。
 
 
 

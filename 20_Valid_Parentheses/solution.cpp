@@ -15,6 +15,7 @@ public:
             return true;
         return false;
     }
+private:
     bool isLeft(char a){
         return a=='(' || a=='[' || a=='{';
     }

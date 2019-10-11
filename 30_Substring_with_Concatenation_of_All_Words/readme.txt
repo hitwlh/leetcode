@@ -4,6 +4,9 @@
 题目大意
 You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.
 
+
+求串联所有单词的子串，就是说给定一个长字符串，再给定几个长度相同的单词，让我们找出串联给定所有单词的子串的起始位置
+
 解决方案
 1.
 我想到的暴力解法：首先对words里的单词建立哈希，然后对字符串s，以每个点为起点判断它们是否是words中的元素，如果是，记录下是哪个元素
@@ -54,5 +57,7 @@ really important!!!
 s: "barfoothefoobarman"
 words: ["foo", "bar"]
 You should return the indices: [0,9].
+Explanation: Substrings starting at index 0 and 9 are "barfoo" and "foobar" respectively.
+The output order does not matter, returning [9,0] is fine too.
 (order does not matter).
 

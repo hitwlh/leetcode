@@ -9,24 +9,17 @@
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
-        ListNode *oddH = new ListNode(-1), *evenH = new ListNode(-1);
-        ListNode *odd = oddH, *even = evenH;
-        bool flag = true;
-        while(head){
-            if(flag){
-                flag = false;
-                odd->next = head;
-                odd = odd->next;
+        if(!head or !head->next) return head;
+        ListNode* p = head, *q = head->next, *pH = p, *qH = q;
+        while(q and q->next){
+            p->next = q->next;
+            if(p->next){
+                p = p->next;
+                q->next = p->next;
+                q = q->next;
             }
-            else{
-                flag = true;
-                even->next = head;
-                even = even->next;
-            }
-            head = head->next;
         }
-        odd->next = evenH->next;
-        even->next = NULL;
-        return oddH->next;
+        p->next = qH;
+        return pH;
     }
 };

@@ -12,7 +12,7 @@ String is non-empty.
 String does not contain white spaces.
 String contains only digits 0-9, [, - ,, ].
 
-
+实现一个迷你解析器用来把一个字符串解析成NestInteger类
 
 
 

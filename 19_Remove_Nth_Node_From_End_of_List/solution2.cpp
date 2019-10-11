@@ -9,21 +9,17 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        int i = -1;
-        struct ListNode Head = ListNode(-1);
-        Head.next = head;
-        ListNode* first = &Head;
-        ListNode* second = &Head;
-        while(i != n && first){
-            first = first->next;
-            i++;
+        ListNode *Head = new ListNode(-1);
+        Head->next = head;
+        ListNode *p1 = Head->next, *p2 = Head;
+        while(n-- && p1)
+            p1 = p1->next;
+        while(p1){
+            p1 = p1->next;
+            p2 = p2->next;
         }
-        while(first){
-            first = first->next;
-            second = second->next;
-        }
-        if(second && second->next)
-            second->next = second->next->next;
-        return Head.next;
+        if(p2 and p2->next)
+            p2->next = p2->next->next;
+        return Head->next;
     }
 };

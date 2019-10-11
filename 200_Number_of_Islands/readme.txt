@@ -4,6 +4,8 @@
 题目大意
 Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 
+求矩阵中连续区域的个数
+
 解决方案
 这就是个简单的搜索题，找到起点，然后搜索所有邻接点并将其改为‘0’
 注意这题深搜和广搜都可以，貌似深搜比较好些而且能快点

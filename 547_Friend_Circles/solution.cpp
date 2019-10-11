@@ -1,8 +1,9 @@
 class Solution {
 public:
     int findCircleNum(vector<vector<int>>& M) {
-        int ret = 0, n = M.size();
-        visit.assign(n, 1);
+        int ret = 0;
+        n = M.size();
+        visit.assign(n, true);
         for(int i = 0; i < n; i++){
             if(visit[i]){
                 dfs(i, M);
@@ -12,13 +13,13 @@ public:
         return ret;
     }
 private:
-    vector<int> visit;
+    vector<bool> visit;
+    int n;
     void dfs(int start, vector<vector<int>>& M){
-        visit[start] = 0;
-        int n = M.size();
+        visit[start] = false;
         for(int i = 0; i < n; i++){
             if(M[start][i] && visit[i])
-                    dfs(i, M);
+                dfs(i, M);
         }
     }
 };

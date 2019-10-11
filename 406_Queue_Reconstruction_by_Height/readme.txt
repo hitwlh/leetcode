@@ -6,6 +6,10 @@ Suppose you have a random list of people standing in a queue. Each person is des
 Note:
 The number of people is less than 1,100.
 
+
+
+这道题给了我们一个队列，队列中的每个元素是一个pair，分别为身高和前面身高不低于当前身高的人的个数，让我们重新排列队列，使得每个pair的第二个参数都满足题意。
+
 解决方案
 肯定是先sort一下
 1. 我想到的解法是先准备好整个队列的空位，然后从矮的排起，这样排到某一个人的时候，他前面所有空位的人都比他高或跟他等高，这样就知道他应该往那里排了，但是这里有一个one-time-attention，那就是加入身高为7的人有2个，第一个人占了一个空位，第二个人再去找位置时，就无法从前面的空位判断出前面有一个人跟他一样高，因此还要有一个same用来标识前面有多少人跟他一样高，然后从头到尾遍历空位就是比他更高的，合起来就是比他高及等高的，这样才对。代码在solution1.cpp

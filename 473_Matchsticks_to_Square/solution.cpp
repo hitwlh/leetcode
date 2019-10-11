@@ -5,7 +5,6 @@ public:
         my_nums = nums;
         int sum = accumulate(nums.begin(), nums.end(), 0);
         if(sum % 4 != 0) return false;
-        sort(my_nums.rbegin(), my_nums.rend());
         return dfs(0, sum/4, 0, 0, 0, 0);
     }
 private:

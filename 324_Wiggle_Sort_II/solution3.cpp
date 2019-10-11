@@ -1,13 +1,10 @@
-
 class Solution {
 public:
     void wiggleSort(vector<int>& nums) {
         if(nums.size() <= 1) return;
         nth_element(nums.begin(), nums.begin()+nums.size()/2, nums.end());
         int midVal = nums[nums.size()/2];
-        int odd = 1, even = 0;
-        int left, right;
-        left = 1, right = nums.size();
+        int odd = 1, even = 0, left = 1, right = nums.size();
         if(right % 2) right -= 1;
         else right -= 2;
         for(int i = odd; i < nums.size(); i += 2){

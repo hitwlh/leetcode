@@ -6,6 +6,8 @@ Given a list of non negative integers, arrange them such that they form the larg
 For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330.
 Note: The result may be very large, so you need to return a string instead of an integer.
 
+给了我们一个数组，让我们将其拼接成最大的数
+
 解决方案
 转化成string数组然后拿去sort，然后再拼接起来就是了。
 难点：如何处理一个字符串是另一个字符串的前缀的情况。

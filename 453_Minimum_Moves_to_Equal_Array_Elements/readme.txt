@@ -11,9 +11,6 @@ Given a non-empty integer array of size n, find the minimum number of moves requ
 
 
 
-
-
-
 样例
 
 

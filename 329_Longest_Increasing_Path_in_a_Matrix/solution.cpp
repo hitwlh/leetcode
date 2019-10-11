@@ -3,9 +3,7 @@ public:
     int longestIncreasingPath(vector<vector<int>>& matrix) {
         if(matrix.empty() || matrix[0].empty()) return 0;
         my_matrix = matrix;
-        vector<int> tmp;
-        tmp.assign(matrix[0].size(), 0);
-        vec.assign(matrix.size(), tmp);
+        vec.assign(matrix.size(), vector<int>(matrix[0].size(), 0));
         for(int i = 0; i < matrix.size(); i++){
             for(int j = 0; j < matrix[i].size(); j++){
                 if(vec[i][j] == 0) up_down(i, j);

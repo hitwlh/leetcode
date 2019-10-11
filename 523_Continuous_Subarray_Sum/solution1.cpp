@@ -12,8 +12,7 @@ public:
             int t = (k == 0) ? sum[i] : (sum[i] % k);
             if(t == 0 && i > 0) return true;
             if(mymap.find(t) != mymap.end() && mymap[t] < i-1) return true;
-            if(mymap.find(t) == mymap.end())
-                mymap[t] = i;
+            mymap[t] = i;
         }
         return false;
     }
@@ -32,6 +31,7 @@ public:
             if(mymap.find(t) == mymap.end())
                 mymap[t] = i;
             else if(mymap[t] < i-1) return true;
+            //else return true;
         }
         return false;
     }

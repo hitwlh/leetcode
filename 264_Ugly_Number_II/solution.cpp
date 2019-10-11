@@ -9,8 +9,8 @@ public:
             int val = min(val2, min(val3, val5));
             q.push_back(val);
             if(val == val2) m2++;
-            else if(val == val3) m3++;
-            else m5++;
+            if(val == val3) m3++;
+            if(val == val5) m5++;
         }
         return q[n-1];
     }

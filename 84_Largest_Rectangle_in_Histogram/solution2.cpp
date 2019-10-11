@@ -1,49 +1,21 @@
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
-        if(heights.empty())
-            return 0;
-        int ma = 0;
+        stack<int> index;
+        index.push(-1);
+        int ret = 0;
         heights.push_back(0);
-        std::stack<int> first;
-        std::stack<int> second;
-        first.push(0);
-        second.push(-1);
-        for(int i=0;i<heights.size();i++){
-            if(first.top()<=heights[i]){
-                first.push(heights[i]);
-                second.push(i);
+        for(int i = 0; i < heights.size(); i++){
+            while(!index.empty() and index.top() != -1 and heights[index.top()] >= heights[i]){
+                int height = heights[index.top()];//当前大矩形高度
+                index.pop();//这里的pop非常有意思：若当前栈顶的位置index1的高度是h，当pop掉之后，栈顶是上一个低于h的高度的index2，介于index1 与index2之间如果有高于h的条带，就这样利用上了 。
+                int width = i - index.top() - 1;
+                //left_index(不包括left_index,因为正确高度的栈顶已被弹出，当前栈顶的高度是严格小于上一个栈顶的)右侧的小矩形，高度均大于leg；
+                //right_index左侧的小矩形，高度均大于leg。因此宽度为right_index - left_index - 1
+                ret = max(ret, width * height);
             }
-            else{
-                while(!first.empty()&&first.top()>heights[i]){
-                    int leg = first.top();
-                    first.pop();
-                    second.pop();
-                    int left_index = second.top();
-                    int right_index = i;
-                    int area = (right_index - left_index - 1) * leg;
-                    ma = ma>area?ma:area;
-                }
-                first.push(heights[i]);
-                second.push(i);
-            }
+            index.push(i);
         }
-        return ma;
+        return ret;
     }
-private: void show_stack(std::stack<int> &first)
-{
-    std::stack<int> second;
-    int x;
-    while(!first.empty()){
-        x = first.top();
-        cout << x << " " ;
-        first.pop();
-        second.push(x);
-    }
-    while(!second.empty()){
-        x = second.top();
-        second.pop();
-        first.push(x);
-    }
-}
 };

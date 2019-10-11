@@ -5,6 +5,7 @@
 Given an array and a value, remove all instances of that value in place and return the new length.
 Do not allocate extra space for another array, you must do this in place with constant memory.
 The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+移除一个数组中和给定值相同的数字，并返回新的数组的长度。
 
 解决方案
 挺简单的，就是遍历下遇到相等的就erase，最后再返回size()

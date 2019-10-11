@@ -9,7 +9,7 @@ For example,
 Given [5, 7, 7, 8, 8, 10] and target value 8,
 return [3, 4].
 
-
+让我们在一个有序整数数组中寻找相同目标值的起始和结束位置
 
 解决方案
 1.显然是遍历解法，这个解法的代码在solution1.cpp

@@ -6,7 +6,7 @@ Given a sequence of n integers a1, a2, ..., an, a 132 pattern is a subsequence a
 
 Note: n will be less than 15,000.
 
-
+给我们了一个数组，让我们找到132的模式，就是第一个数小于第二第三个数，且第三个数小于第二个数。
 
 
 解决方案
